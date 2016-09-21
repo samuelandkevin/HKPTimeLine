@@ -34,4 +34,6 @@ alpha:1.0]
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #define DDLog(FORMAT, ...)   fprintf(stderr, "\n[%s]  function:%s line:%d content:%s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
+#define WeakSelf  __weak __typeof(&*self)weakSelf = self;
 #endif /* HKPTimeLine_pch */

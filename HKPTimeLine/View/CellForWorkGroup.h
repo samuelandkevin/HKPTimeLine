@@ -26,7 +26,7 @@
 
 @interface CellForWorkGroup : UITableViewCell
 
-@property(nonatomic,strong) YHWorkGroup *model;
+@property (nonatomic,strong) YHWorkGroup *model;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic, weak) id<CellForWorkGroupDelegate> delegate;
 @end

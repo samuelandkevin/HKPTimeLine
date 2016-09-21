@@ -12,6 +12,8 @@
 #import "YHRefreshTableView.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "YHWorkGroup.h"
+#import "YHUserInfoManager.h"
+#import "HHUtils.h"
 
 @interface YHTimeLineListController ()<UITableViewDelegate,UITableViewDataSource,CellForWorkGroupDelegate,CellForWorkGroupRepostDelegate>{
     int _currentRequestPage; //当前请求页面
@@ -31,6 +33,8 @@
 - (void)viewDidLoad{
     [self initUI];
     [self requestDataLoadNew:YES];
+    //kun调试用
+    [YHUserInfoManager sharedInstance].userInfo.uid = @"1";
 }
 
 - (void)initUI{
@@ -96,7 +100,6 @@
         cell2 = (CellForWorkGroupRepost *)cell;
         cell2.indexPath = indexPath;
         cell2.model = model;
-        cell2.model.isRepost = YES;
         cell2.delegate = self;
         return cell2;
     }
@@ -194,7 +197,7 @@
 - (void)randomModel:(YHWorkGroup *)model totalCount:(int)totalCount{
     
     model.type = arc4random()%totalCount %2? DynType_Forward:DynType_Original;
-
+//    model.type = DynType_Forward;//kun调试
     if (model.type == DynType_Forward) {
         model.forwardModel = [YHWorkGroup new];
         [self creatOriModel:model.forwardModel totalCount:totalCount];
@@ -207,6 +210,10 @@
     YHUserInfo *userInfo = [YHUserInfo new];
     model.userInfo = userInfo;
     model.userInfo.avatarUrl = [NSURL URLWithString:@""];
+    
+    CGFloat myIdLength = arc4random() % totalCount;
+    int result = (int)myIdLength % 2;
+    model.userInfo.uid = result ?   [YHUserInfoManager sharedInstance].userInfo.uid:@"2";
     
     CGFloat nLength = arc4random() % 3 + 1;
     NSMutableString *nStr = [NSMutableString new];
@@ -239,9 +246,10 @@
     model.userInfo.job = jStr;
     
     CGFloat qlength = arc4random() % totalCount + 5;
+//    qlength = 1;//kun调试
     NSMutableString *qStr = [[NSMutableString alloc] init];
     for (NSUInteger i = 0; i < qlength; ++i) {
-        [qStr appendString:@"测试数据很长，"];
+        [qStr appendString:@"测试数据很长，测试数据很长."];
     }
     model.msgContent = qStr;
     model.publishTime = @"2013-04-17";
@@ -267,6 +275,87 @@
     [self requestDataLoadNew:NO];
 }
 
+
+#pragma mark - CellForWorkGroupDelegate
+- (void)onMoreInCell:(CellForWorkGroup *)cell{
+    DDLog(@"查看详情");
+    if (cell.indexPath.row < [self.dataArray count]) {
+        YHWorkGroup *model = self.dataArray[cell.indexPath.row];
+        model.isOpening = !model.isOpening;
+        [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+
+}
+
+- (void)onCommentInCell:(CellForWorkGroup *)cell{
+
+}
+
+- (void)onLikeInCell:(CellForWorkGroup *)cell{
+
+}
+
+- (void)onShareInCell:(CellForWorkGroup *)cell{
+
+}
+
+- (void)onAvatarInCell:(CellForWorkGroup *)cell{
+
+}
+
+- (void)onDeleteInCell:(CellForWorkGroup *)cell{
+    if (cell.indexPath.row < [self.dataArray count]) {
+        [self _deleteDynAtIndexPath:cell.indexPath dynamicId:cell.model.dynamicId];
+    }
+}
+
+#pragma mark - CellForWorkGroupRepostDelegate
+- (void)onTapRepostViewInCell:(CellForWorkGroupRepost *)cell{
+}
+
+- (void)onCommentInRepostCell:(CellForWorkGroupRepost *)cell{
+}
+
+- (void)onLikeInRepostCell:(CellForWorkGroupRepost *)cell{
+}
+
+- (void)onShareInRepostCell:(CellForWorkGroupRepost *)cell{
+}
+
+- (void)onDeleteInRepostCell:(CellForWorkGroupRepost *)cell{
+    if (cell.indexPath.row < [self.dataArray count]) {
+        [self _deleteDynAtIndexPath:cell.indexPath dynamicId:cell.model.dynamicId];
+    }
+}
+
+- (void)onMoreInRespostCell:(CellForWorkGroupRepost *)cell{
+    if (cell.indexPath.row < [self.dataArray count]) {
+        YHWorkGroup *model = self.dataArray[cell.indexPath.row];
+        model.isOpening = !model.isOpening;
+        [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+
+#pragma mark - private
+- (void)_deleteDynAtIndexPath:(NSIndexPath *)indexPath dynamicId:(NSString *)dynamicId{
+    
+    WeakSelf
+    [HHUtils showAlertWithTitle:@"删除动态" message:@"您确定要删除此动态?" okTitle:@"确定" cancelTitle:@"取消" inViewController:self dismiss:^(BOOL resultYes) {
+        
+        if (resultYes)
+        {
+
+            DDLog(@"delete row is %ld",(long)indexPath.row);
+                    
+            [weakSelf.dataArray removeObjectAtIndex:indexPath.row];
+     
+            [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+   
+        }
+    }];
+    
+}
 
 #pragma mark - UIScrollViewDelegate
 

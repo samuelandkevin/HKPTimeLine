@@ -134,18 +134,6 @@
 
 #pragma mark - Action
 
-- (void)onMoreTap
-{
-    
-}
-
-- (void)deleteButtonClicked:(UIButton *)sender{
-    
-    if (_delegate && [_delegate respondsToSelector:@selector(onDelete)]) {
-        [_delegate onDelete];
-    }
-}
-
 - (void)onShare:(UIButton *)sender{
     if (_delegate && [_delegate respondsToSelector:@selector(onShare)]) {
         [_delegate onShare];
@@ -166,10 +154,5 @@
     }
 }
 
-- (void)onTapAvatar:(UIButton *)sender{
-    if (_delegate && [_delegate respondsToSelector:@selector(onAvatar)]) {
-        [_delegate onAvatar];
-    }
-}
 
 @end

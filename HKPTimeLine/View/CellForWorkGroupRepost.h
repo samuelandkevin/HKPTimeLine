@@ -18,7 +18,7 @@
 - (void)onLikeInRepostCell:(CellForWorkGroupRepost *)cell;
 - (void)onShareInRepostCell:(CellForWorkGroupRepost *)cell;
 - (void)onDeleteInRepostCell:(CellForWorkGroupRepost *)cell;
-
+- (void)onMoreInRespostCell:(CellForWorkGroupRepost *)cell;
 @end
 
 @interface CellForWorkGroupRepost : UITableViewCell

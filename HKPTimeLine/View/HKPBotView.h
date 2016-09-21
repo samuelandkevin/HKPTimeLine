@@ -11,14 +11,10 @@
 @class HKPBotView;
 
 @protocol HKPBotViewDelegate <NSObject>
-- (void)onAvatar;
-- (void)onMore;
+
 - (void)onComment;
 - (void)onLike;
 - (void)onShare;
-
-@optional
-- (void)onDelete;
 
 @end
 

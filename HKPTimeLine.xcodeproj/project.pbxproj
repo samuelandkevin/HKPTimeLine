@@ -32,6 +32,8 @@
 		AC1CBFA41D91154000FB8DD8 /* CellForWorkGroupRepost.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBFA31D91154000FB8DD8 /* CellForWorkGroupRepost.m */; };
 		AC1CBFB21D911BA300FB8DD8 /* HKPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBFB11D911BA300FB8DD8 /* HKPCommon.m */; };
 		AC1CBFB51D911D6F00FB8DD8 /* NSDate+LYXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */; };
+		AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */; };
+		AC2B6FCA1D925FFB0004B6D9 /* HHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC91D925FFB0004B6D9 /* HHUtils.m */; };
 		ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC0B7B1D8FDBCF00ACFEBD /* main.m */; };
 		ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC0B7E1D8FDBCF00ACFEBD /* AppDelegate.m */; };
 		ACCC0B851D8FDBCF00ACFEBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */; };
@@ -95,6 +97,10 @@
 		AC1CBFB11D911BA300FB8DD8 /* HKPCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPCommon.m; sourceTree = "<group>"; };
 		AC1CBFB31D911D6F00FB8DD8 /* NSDate+LYXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LYXCategory.h"; sourceTree = "<group>"; };
 		AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LYXCategory.m"; sourceTree = "<group>"; };
+		AC2B6FC51D9215200004B6D9 /* YHUserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUserInfoManager.h; sourceTree = "<group>"; };
+		AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUserInfoManager.m; sourceTree = "<group>"; };
+		AC2B6FC81D925FFB0004B6D9 /* HHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUtils.h; sourceTree = "<group>"; };
+		AC2B6FC91D925FFB0004B6D9 /* HHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUtils.m; sourceTree = "<group>"; };
 		ACCC0B771D8FDBCF00ACFEBD /* HKPTimeLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKPTimeLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCC0B7B1D8FDBCF00ACFEBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACCC0B7D1D8FDBCF00ACFEBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -237,12 +243,23 @@
 		AC1CBFA51D911A4C00FB8DD8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				AC2B6FC81D925FFB0004B6D9 /* HHUtils.h */,
+				AC2B6FC91D925FFB0004B6D9 /* HHUtils.m */,
 				AC1CBFB31D911D6F00FB8DD8 /* NSDate+LYXCategory.h */,
 				AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */,
 				AC1CBFB01D911BA300FB8DD8 /* HKPCommon.h */,
 				AC1CBFB11D911BA300FB8DD8 /* HKPCommon.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		AC2B6FC41D9215200004B6D9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AC2B6FC51D9215200004B6D9 /* YHUserInfoManager.h */,
+				AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		ACCC0B6E1D8FDBCF00ACFEBD = {
@@ -269,6 +286,7 @@
 				ACCC0B7D1D8FDBCF00ACFEBD /* AppDelegate.h */,
 				ACCC0B7E1D8FDBCF00ACFEBD /* AppDelegate.m */,
 				AC02FF3F1D8FE25E003FD63E /* HKPTimeLine.pch */,
+				AC2B6FC41D9215200004B6D9 /* Manager */,
 				AC1CBFA51D911A4C00FB8DD8 /* Tools */,
 				AC02FF371D8FE146003FD63E /* Others */,
 				AC02FF301D8FDE62003FD63E /* View */,
@@ -432,11 +450,13 @@
 				AC1CBF981D910F0D00FB8DD8 /* YHUserInfo.m in Sources */,
 				AC1CBF711D90BDB100FB8DD8 /* HKPBotView.m in Sources */,
 				AC1CBFA01D910F4900FB8DD8 /* YHUserSetting.m in Sources */,
+				AC2B6FCA1D925FFB0004B6D9 /* HHUtils.m in Sources */,
 				AC02FF2D1D8FDE4C003FD63E /* ViewController.m in Sources */,
 				AC1CBF951D910EDB00FB8DD8 /* YHWorkGroup.m in Sources */,
 				ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */,
 				AC02FF3D1D8FE146003FD63E /* UITableView+HYBCacheHeight.m in Sources */,
 				AC1CBF921D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
+				AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */,
 				AC02FF421D8FE732003FD63E /* YHRefreshTableView.m in Sources */,
 				AC02FF3E1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 			);
