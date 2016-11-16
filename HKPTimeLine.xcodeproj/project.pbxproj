@@ -14,8 +14,6 @@
 		AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */; };
 		AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */; };
 		AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */; };
-		AC0432431DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432201DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m */; };
-		AC0432441DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432221DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		AC0432451DDC0BC9008DCE20 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */; };
 		AC0432461DDC0BC9008DCE20 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432271DDC0BC9008DCE20 /* SDPhotoBrowser.m */; };
 		AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04322A1DDC0BC9008DCE20 /* SDWaitingView.m */; };
@@ -60,10 +58,6 @@
 		AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		AC04321C1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
 		AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
-		AC04321F1DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HYBCacheHeight.h"; sourceTree = "<group>"; };
-		AC0432201DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
-		AC0432211DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
-		AC0432221DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
 		AC0432241DDC0BC9008DCE20 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
 		AC0432261DDC0BC9008DCE20 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
@@ -202,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				AC0432151DDC0BC9008DCE20 /* FDTemplateLayoutCell */,
-				AC04321E1DDC0BC9008DCE20 /* HYBMasonryAutoCellHeight */,
 				AC0432231DDC0BC9008DCE20 /* SDPhotoBrowser */,
 			);
 			path = ThirdParty;
@@ -221,17 +214,6 @@
 				AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */,
 			);
 			path = FDTemplateLayoutCell;
-			sourceTree = "<group>";
-		};
-		AC04321E1DDC0BC9008DCE20 /* HYBMasonryAutoCellHeight */ = {
-			isa = PBXGroup;
-			children = (
-				AC04321F1DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.h */,
-				AC0432201DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m */,
-				AC0432211DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.h */,
-				AC0432221DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m */,
-			);
-			path = HYBMasonryAutoCellHeight;
 			sourceTree = "<group>";
 		};
 		AC0432231DDC0BC9008DCE20 /* SDPhotoBrowser */ = {
@@ -454,12 +436,10 @@
 				AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */,
 				AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				AC1CBF981D910F0D00FB8DD8 /* YHUserInfo.m in Sources */,
-				AC0432431DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m in Sources */,
 				AC0432451DDC0BC9008DCE20 /* SDBrowserImageView.m in Sources */,
 				AC0432461DDC0BC9008DCE20 /* SDPhotoBrowser.m in Sources */,
 				AC1CBF711D90BDB100FB8DD8 /* HKPBotView.m in Sources */,
 				AC1CBFA01D910F4900FB8DD8 /* YHUserSetting.m in Sources */,
-				AC0432441DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				AC2B6FCA1D925FFB0004B6D9 /* YHUtils.m in Sources */,
 				AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				AC04323F1DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m in Sources */,
