@@ -1,8 +1,8 @@
 //
 //  HHUtils.h
 //  HipHopBattle
-//
-//  Created by Troy on 14-6-26.
+//  CSDN:  http://blog.csdn.net/samuelandkevin
+//  Created by samuelandkevin on 14-6-26.
 //  Copyright (c) 2014年 Dope Beats Co.,Ltd. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 typedef void(^HHAlertCallback)(BOOL resultYes );
 
-@interface HHUtils : NSObject
+@interface YHUtils : NSObject
 
 /**
  * 获取文件MD5值

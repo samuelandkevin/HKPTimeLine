@@ -1,9 +1,9 @@
 //
 //  YHSuperTableView.m
-//  PikeWay
+//  github:  https://github.com/samuelandkevin
 //
-//  Created by YHIOS002 on 16/5/31.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by samuelandkevin on 16/5/31.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import "YHRefreshTableView.h"
@@ -35,7 +35,7 @@
 }
 
 - (void)awakeFromNib {
-    
+    [super awakeFromNib];
  
 }
 /*

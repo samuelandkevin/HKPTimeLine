@@ -1,19 +1,17 @@
 //
 //  CellForQAList.m
-//  PikeWay
-//
-//  Created by YHIOS002 on 16/8/29.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  github:  https://github.com/samuelandkevin
+//  CSDN:  http://blog.csdn.net/samuelandkevin
+//  Created by samuelandkevin on 16/8/29.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import "CellForWorkGroup.h"
-#import "HKPBotView.h"
 #import "YHWorkGroupPhotoContainer.h"
 #import "YHUserInfoManager.h"
 
 const CGFloat contentLabelFontSize = 13.0;
 CGFloat maxContentLabelHeight = 0;  //根据具体font而定
-//CGFloat maxContentRepostLabelHeight = 0;
 CGFloat kMarginContentLeft    = 10; //动态内容左边边距
 CGFloat kMarginContentRight   = 10; //动态内容右边边边距
 const CGFloat deleteBtnHeight = 30;
@@ -33,7 +31,6 @@ const CGFloat moreBtnWidth    = 60;
 @property (nonatomic,strong)UILabel     *labelMore;
 
 @property (nonatomic,strong)YHWorkGroupPhotoContainer *picContainerView;
-@property (nonatomic,strong)HKPBotView  *viewBottom;
 @property (nonatomic,strong)UIView      *viewSeparator;
 @end
 
@@ -49,7 +46,13 @@ const CGFloat moreBtnWidth    = 60;
 }
 
 - (void)setup{
+    
     self.imgvAvatar = [UIImageView new];
+    self.imgvAvatar.layer.cornerRadius = 22.5;
+    self.imgvAvatar.layer.masksToBounds = YES;
+    self.imgvAvatar.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAvatar:)];
+    [self.imgvAvatar addGestureRecognizer:tapGuesture];
     [self.contentView addSubview:self.imgvAvatar];
     
     self.labelName  = [UILabel new];
@@ -109,7 +112,7 @@ const CGFloat moreBtnWidth    = 60;
 
      [self layoutUI];
     
-    //kun调试
+    //
 //    self.labelMore.backgroundColor    = [UIColor yellowColor];
 //    self.labelDelete.backgroundColor  = [UIColor blueColor];
 //    self.labelContent.backgroundColor = [UIColor redColor];
@@ -307,6 +310,10 @@ const CGFloat moreBtnWidth    = 60;
         make.top.equalTo(weakSelf.picContainerView.mas_bottom).offset(viewBottomTop).priorityLow();
     }];
 
+    
+    _viewBottom.btnLike.selected = _model.isLike? YES: NO;
+    [_viewBottom.btnComment setTitle:[NSString stringWithFormat:@"%d",_model.commentCount] forState:UIControlStateNormal];//评论数
+    [_viewBottom.btnLike setTitle:[NSString stringWithFormat:@"%d",_model.likeCount] forState:UIControlStateNormal];          //点赞数
 }
 
 #pragma mark - Action
@@ -322,6 +329,17 @@ const CGFloat moreBtnWidth    = 60;
     
     if (_delegate && [_delegate respondsToSelector:@selector(onDeleteInCell:)]) {
         [_delegate onDeleteInCell:self];
+    }
+}
+
+#pragma mark - Gesture
+
+- (void)onAvatar:(UITapGestureRecognizer *)recognizer{
+    
+    if(recognizer.state == UIGestureRecognizerStateEnded){
+        if (_delegate && [_delegate respondsToSelector:@selector(onAvatarInCell:)]) {
+            [_delegate onAvatarInCell:self];
+        }
     }
 }
 

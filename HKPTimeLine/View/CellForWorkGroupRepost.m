@@ -1,13 +1,12 @@
 //
 //  CellForWorkGroupRepost.m
-//  HKPTimeLine
-//
-//  Created by YHIOS002 on 16/9/20.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  HKPTimeLine  仿赤兔、微博动态
+//  CSDN:  http://blog.csdn.net/samuelandkevin
+//  Created by samuelandkevin on 16/9/20.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import "CellForWorkGroupRepost.h"
-#import "HKPBotView.h"
 #import "YHWorkGroupPhotoContainer.h"
 #import "HKPCommon.h"
 #import "YHUserInfoManager.h"
@@ -47,6 +46,8 @@ static const CGFloat contentLabelFontSizeRepost = 13;
     
     //头像
     _imgvAvatar = [UIImageView new];
+    _imgvAvatar.layer.cornerRadius  = 22.5;
+    _imgvAvatar.layer.masksToBounds = YES;
     [self addSubview:_imgvAvatar];
     
     _labelName = [UILabel new];
@@ -91,13 +92,7 @@ static const CGFloat contentLabelFontSizeRepost = 13;
     [self layoutUI];
     
     self.backgroundColor = RGBCOLOR(244, 244, 244);
-    //kun调试
-//    self.labelJob.backgroundColor = [UIColor yellowColor];
-//    self.labelContent.backgroundColor = [UIColor blackColor];
-//    self.labelCompany.backgroundColor = [UIColor orangeColor];
-//    self.labelPubTime.backgroundColor = [UIColor darkGrayColor];
-//    self.labelName.backgroundColor = [UIColor greenColor];
-//    self.labelIndustry.backgroundColor = [UIColor brownColor];
+
     
 }
 
@@ -204,14 +199,11 @@ static const CGFloat contentLabelFontSizeRepost = 13;
 #pragma mark - CellForWorkGroupRepost
 
 /***发布动态视图**/
-//static const CGFloat contentLabelFontSize = 13;
 CGFloat maxContentRepostLabelHeight;// 根据具体font而定
 static const CGFloat moreBtnHeight   = 30;
-//static const CGFloat moreBtnWidth    = 60;
-//static const CGFloat deleteBtnWidth  = 60;
 static const CGFloat deleteBtnHeight = 30;
 
-@interface CellForWorkGroupRepost()
+@interface CellForWorkGroupRepost()<HKPBotViewDelegate>
 
 @property (nonatomic,strong)UIImageView *imgvAvatar;
 @property (nonatomic,strong)UILabel     *labelName;
@@ -224,7 +216,7 @@ static const CGFloat deleteBtnHeight = 30;
 @property (nonatomic,strong)UILabel     *labelMore;
 
 @property (nonatomic,strong)YHWorkGroupRepostView *repostView;
-@property (nonatomic,strong)HKPBotView  *viewBottom;
+
 @property (nonatomic,strong)UIView      *viewSeparator;
 
 @end
@@ -245,6 +237,11 @@ static const CGFloat deleteBtnHeight = 30;
 
 - (void)setup{
     self.imgvAvatar = [UIImageView new];
+    self.imgvAvatar.layer.cornerRadius = 22.5;
+    self.imgvAvatar.layer.masksToBounds = YES;
+    self.imgvAvatar.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAvatar:)];
+    [self.imgvAvatar addGestureRecognizer:tapGuesture];
     [self.contentView addSubview:self.imgvAvatar];
     
     self.labelName  = [UILabel new];
@@ -294,6 +291,7 @@ static const CGFloat deleteBtnHeight = 30;
     [self.contentView addSubview:self.repostView];
     
     self.viewBottom = [HKPBotView new];
+    self.viewBottom.delegate = self;
     [self.contentView addSubview:self.viewBottom];
     
     self.viewSeparator = [UIView new];
@@ -303,7 +301,7 @@ static const CGFloat deleteBtnHeight = 30;
     
     [self layoutUI];
     
-    //kun调试
+    //
 //    self.labelMore.backgroundColor    = [UIColor yellowColor];
 //    self.labelDelete.backgroundColor  = [UIColor blueColor];
 //    self.labelContent.backgroundColor = [UIColor redColor];
@@ -488,6 +486,9 @@ static const CGFloat deleteBtnHeight = 30;
 
     self.repostView.forwardModel = _model.forwardModel;
     
+    _viewBottom.btnLike.selected = _model.isLike? YES: NO;
+    [_viewBottom.btnComment setTitle:[NSString stringWithFormat:@"%d",_model.commentCount] forState:UIControlStateNormal];//评论数
+    [_viewBottom.btnLike setTitle:[NSString stringWithFormat:@"%d",_model.likeCount] forState:UIControlStateNormal];          //点赞数
 }
 
 - (void)awakeFromNib {
@@ -510,6 +511,46 @@ static const CGFloat deleteBtnHeight = 30;
         [_delegate onDeleteInRepostCell:self];
     }
 }
+
+#pragma mark - Gesture
+
+- (void)onAvatar:(UITapGestureRecognizer *)recognizer{
+    
+    if(recognizer.state == UIGestureRecognizerStateEnded){
+        if (_delegate && [_delegate respondsToSelector:@selector(onAvatarInRepostCell:)]) {
+            [_delegate onAvatarInRepostCell:self];
+        }
+    }
+}
+
+#pragma mark - HKPBotViewDelegate
+- (void)onAvatar{
+    
+}
+
+- (void)onMore{
+    
+}
+
+- (void)onComment{
+    if (_delegate && [_delegate respondsToSelector:@selector(onCommentInRepostCell:)]) {
+        [_delegate onCommentInRepostCell:self];
+    }
+}
+
+- (void)onLike{
+    if (_delegate && [_delegate respondsToSelector:@selector(onLikeInRepostCell:)]) {
+        [_delegate onLikeInRepostCell:self];
+    }
+}
+
+- (void)onShare{
+    if (_delegate && [_delegate respondsToSelector:@selector(onShareInRepostCell:)]) {
+        [_delegate onShareInRepostCell:self];
+    }
+}
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

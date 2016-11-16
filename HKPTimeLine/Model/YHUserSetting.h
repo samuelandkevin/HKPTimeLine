@@ -1,9 +1,9 @@
 //
 //  YHUserSetting.h
-//  PikeWay
+//  github:  https://github.com/samuelandkevin
 //
 //  Created by kun on 16/5/2.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Copyright © 2016年 HKP. All rights reserved.
 //  用户隐私设置
 
 #import <Foundation/Foundation.h>

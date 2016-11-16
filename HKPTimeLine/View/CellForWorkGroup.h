@@ -1,14 +1,14 @@
 //
 //  CellForQAList.h
-//  PikeWay
+//  github:  https://github.com/samuelandkevin
 //
-//  Created by YHIOS002 on 16/8/29.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by samuelandkevin on 16/8/29.
+//  Copyright © 2016年 HKP. All rights reserved.
 //  原创视图
 
 #import <UIKit/UIKit.h>
 #import "YHWorkGroup.h"
-
+#import "HKPBotView.h"
 
 @class CellForWorkGroup;
 @protocol CellForWorkGroupDelegate <NSObject>
@@ -29,4 +29,5 @@
 @property (nonatomic,strong) YHWorkGroup *model;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic, weak) id<CellForWorkGroupDelegate> delegate;
+@property (nonatomic,strong)HKPBotView  *viewBottom;
 @end

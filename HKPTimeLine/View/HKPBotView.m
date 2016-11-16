@@ -1,9 +1,9 @@
 //
 //  HKPBotView.m
-//  HKPTimeLine
-//
-//  Created by YHIOS002 on 16/9/20.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  HKPTimeLine  仿赤兔、微博动态
+//  CSDN:  http://blog.csdn.net/samuelandkevin
+//  Created by samuelandkevin on 16/9/20.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import "HKPBotView.h"
@@ -143,7 +143,7 @@
 
 - (void)onLike:(UIButton *)sender{
     sender.selected = !sender.selected;
-    if (_delegate && [_delegate respondsToSelector:@selector(onLike:)]) {
+    if (_delegate && [_delegate respondsToSelector:@selector(onLike)]) {
         [_delegate onLike];
     }
 }

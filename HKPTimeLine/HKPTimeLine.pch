@@ -1,9 +1,9 @@
 //
-//  HKPTimeLine.pch
-//  HKPTimeLine
+//  HKPTimeLine  仿赤兔、微博动态.pch
+//  HKPTimeLine  仿赤兔、微博动态
 //
-//  Created by YHIOS002 on 16/9/19.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by samuelandkevin on 16/9/19.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #ifndef HKPTimeLine_pch
@@ -32,6 +32,7 @@ alpha:1.0]
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define KEYWINDOW [UIApplication sharedApplication].keyWindow
 
 #define DDLog(FORMAT, ...)   fprintf(stderr, "\n[%s]  function:%s line:%d content:%s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 

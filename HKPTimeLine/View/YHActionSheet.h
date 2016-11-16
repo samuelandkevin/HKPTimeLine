@@ -1,9 +1,9 @@
 //
 //  YHActionSheet.h
-//  PikeWay
+//  github:  https://github.com/samuelandkevin
 //
-//  Created by YHIOS002 on 16/4/28.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by samuelandkevin on 16/4/28.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

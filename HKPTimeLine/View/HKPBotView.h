@@ -1,13 +1,13 @@
 //
 //  HKPBotView.h
-//  HKPTimeLine
-//
-//  Created by YHIOS002 on 16/9/20.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  HKPTimeLine  仿赤兔、微博动态
+//  CSDN:  http://blog.csdn.net/samuelandkevin
+//  Created by samuelandkevin on 16/9/20.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-@class YHWorkGroupButton;
+#import "YHWorkGroupButton.h"
 @class HKPBotView;
 
 @protocol HKPBotViewDelegate <NSObject>

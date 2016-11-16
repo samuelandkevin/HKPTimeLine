@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC02FF2D1D8FDE4C003FD63E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF2A1D8FDE4C003FD63E /* ViewController.m */; };
 		AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */; };
 		AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF321D8FDED0003FD63E /* CellForWorkGroup.m */; };
-		AC02FF3D1D8FE146003FD63E /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF3A1D8FE146003FD63E /* UITableView+HYBCacheHeight.m */; };
-		AC02FF3E1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF3C1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		AC02FF421D8FE732003FD63E /* YHRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF411D8FE732003FD63E /* YHRefreshTableView.m */; };
+		AC04323F1DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432171DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m */; };
+		AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */; };
+		AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */; };
+		AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */; };
+		AC0432431DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432201DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m */; };
+		AC0432441DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432221DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
+		AC0432451DDC0BC9008DCE20 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */; };
+		AC0432461DDC0BC9008DCE20 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432271DDC0BC9008DCE20 /* SDPhotoBrowser.m */; };
+		AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04322A1DDC0BC9008DCE20 /* SDWaitingView.m */; };
+		AC04324A1DDC30F5008DCE20 /* YHSharePresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432491DDC30F5008DCE20 /* YHSharePresentView.m */; };
 		AC1CBF711D90BDB100FB8DD8 /* HKPBotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF701D90BDB100FB8DD8 /* HKPBotView.m */; };
 		AC1CBF741D90CD2100FB8DD8 /* YHWorkGroupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF731D90CD2100FB8DD8 /* YHWorkGroupButton.m */; };
 		AC1CBF771D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF761D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m */; };
-		AC1CBF801D90D92900FB8DD8 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF7A1D90D92900FB8DD8 /* SDBrowserImageView.m */; };
-		AC1CBF811D90D92900FB8DD8 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF7C1D90D92900FB8DD8 /* SDPhotoBrowser.m */; };
-		AC1CBF821D90D92900FB8DD8 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF7F1D90D92900FB8DD8 /* SDWaitingView.m */; };
 		AC1CBF851D90D96C00FB8DD8 /* YHActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF841D90D96C00FB8DD8 /* YHActionSheet.m */; };
-		AC1CBF8F1D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF881D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.m */; };
-		AC1CBF901D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF8A1D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.m */; };
-		AC1CBF911D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF8C1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.m */; };
-		AC1CBF921D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF8E1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		AC1CBF951D910EDB00FB8DD8 /* YHWorkGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF941D910EDB00FB8DD8 /* YHWorkGroup.m */; };
 		AC1CBF981D910F0D00FB8DD8 /* YHUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF971D910F0D00FB8DD8 /* YHUserInfo.m */; };
 		AC1CBF9F1D910F4900FB8DD8 /* YHEducationExperienceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBF9A1D910F4900FB8DD8 /* YHEducationExperienceModel.m */; };
@@ -33,7 +33,7 @@
 		AC1CBFB21D911BA300FB8DD8 /* HKPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBFB11D911BA300FB8DD8 /* HKPCommon.m */; };
 		AC1CBFB51D911D6F00FB8DD8 /* NSDate+LYXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */; };
 		AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */; };
-		AC2B6FCA1D925FFB0004B6D9 /* HHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC91D925FFB0004B6D9 /* HHUtils.m */; };
+		AC2B6FCA1D925FFB0004B6D9 /* YHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC91D925FFB0004B6D9 /* YHUtils.m */; };
 		ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC0B7B1D8FDBCF00ACFEBD /* main.m */; };
 		ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC0B7E1D8FDBCF00ACFEBD /* AppDelegate.m */; };
 		ACCC0B851D8FDBCF00ACFEBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */; };
@@ -45,42 +45,42 @@
 /* Begin PBXFileReference section */
 		186569FABF1E1D48852D69EA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9AF70828C702D7C45D63B417 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC02FF291D8FDE4C003FD63E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AC02FF2A1D8FDE4C003FD63E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AC02FF2B1D8FDE4C003FD63E /* YHTimeLineListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTimeLineListController.h; sourceTree = "<group>"; };
 		AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTimeLineListController.m; sourceTree = "<group>"; };
 		AC02FF311D8FDED0003FD63E /* CellForWorkGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellForWorkGroup.h; sourceTree = "<group>"; };
 		AC02FF321D8FDED0003FD63E /* CellForWorkGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellForWorkGroup.m; sourceTree = "<group>"; };
-		AC02FF391D8FE146003FD63E /* UITableView+HYBCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HYBCacheHeight.h"; sourceTree = "<group>"; };
-		AC02FF3A1D8FE146003FD63E /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
-		AC02FF3B1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
-		AC02FF3C1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
 		AC02FF3F1D8FE25E003FD63E /* HKPTimeLine.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPTimeLine.pch; sourceTree = "<group>"; };
 		AC02FF401D8FE732003FD63E /* YHRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHRefreshTableView.h; sourceTree = "<group>"; };
 		AC02FF411D8FE732003FD63E /* YHRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHRefreshTableView.m; sourceTree = "<group>"; };
+		AC0432161DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		AC0432171DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		AC0432181DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		AC04321A1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		AC04321C1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		AC04321F1DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HYBCacheHeight.h"; sourceTree = "<group>"; };
+		AC0432201DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
+		AC0432211DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
+		AC0432221DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
+		AC0432241DDC0BC9008DCE20 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		AC0432261DDC0BC9008DCE20 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		AC0432271DDC0BC9008DCE20 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		AC0432281DDC0BC9008DCE20 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		AC0432291DDC0BC9008DCE20 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		AC04322A1DDC0BC9008DCE20 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		AC0432481DDC30F5008DCE20 /* YHSharePresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHSharePresentView.h; sourceTree = "<group>"; };
+		AC0432491DDC30F5008DCE20 /* YHSharePresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHSharePresentView.m; sourceTree = "<group>"; };
 		AC1CBF6F1D90BDB100FB8DD8 /* HKPBotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPBotView.h; sourceTree = "<group>"; };
 		AC1CBF701D90BDB100FB8DD8 /* HKPBotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPBotView.m; sourceTree = "<group>"; };
 		AC1CBF721D90CD2100FB8DD8 /* YHWorkGroupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWorkGroupButton.h; sourceTree = "<group>"; };
 		AC1CBF731D90CD2100FB8DD8 /* YHWorkGroupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWorkGroupButton.m; sourceTree = "<group>"; };
 		AC1CBF751D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWorkGroupPhotoContainer.h; sourceTree = "<group>"; };
 		AC1CBF761D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWorkGroupPhotoContainer.m; sourceTree = "<group>"; };
-		AC1CBF791D90D92900FB8DD8 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
-		AC1CBF7A1D90D92900FB8DD8 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
-		AC1CBF7B1D90D92900FB8DD8 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
-		AC1CBF7C1D90D92900FB8DD8 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
-		AC1CBF7D1D90D92900FB8DD8 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
-		AC1CBF7E1D90D92900FB8DD8 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
-		AC1CBF7F1D90D92900FB8DD8 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		AC1CBF831D90D96C00FB8DD8 /* YHActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHActionSheet.h; sourceTree = "<group>"; };
 		AC1CBF841D90D96C00FB8DD8 /* YHActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHActionSheet.m; sourceTree = "<group>"; };
-		AC1CBF871D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
-		AC1CBF881D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
-		AC1CBF891D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
-		AC1CBF8A1D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
-		AC1CBF8B1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
-		AC1CBF8C1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
-		AC1CBF8D1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
-		AC1CBF8E1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		AC1CBF931D910EDB00FB8DD8 /* YHWorkGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWorkGroup.h; sourceTree = "<group>"; };
 		AC1CBF941D910EDB00FB8DD8 /* YHWorkGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWorkGroup.m; sourceTree = "<group>"; };
 		AC1CBF961D910F0D00FB8DD8 /* YHUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUserInfo.h; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 		AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LYXCategory.m"; sourceTree = "<group>"; };
 		AC2B6FC51D9215200004B6D9 /* YHUserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUserInfoManager.h; sourceTree = "<group>"; };
 		AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUserInfoManager.m; sourceTree = "<group>"; };
-		AC2B6FC81D925FFB0004B6D9 /* HHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUtils.h; sourceTree = "<group>"; };
-		AC2B6FC91D925FFB0004B6D9 /* HHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUtils.m; sourceTree = "<group>"; };
+		AC2B6FC81D925FFB0004B6D9 /* YHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUtils.h; sourceTree = "<group>"; };
+		AC2B6FC91D925FFB0004B6D9 /* YHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUtils.m; sourceTree = "<group>"; };
 		ACCC0B771D8FDBCF00ACFEBD /* HKPTimeLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKPTimeLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCC0B7B1D8FDBCF00ACFEBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACCC0B7D1D8FDBCF00ACFEBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,8 +144,6 @@
 		AC02FF281D8FDE4C003FD63E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AC02FF291D8FDE4C003FD63E /* ViewController.h */,
-				AC02FF2A1D8FDE4C003FD63E /* ViewController.m */,
 				AC02FF2B1D8FDE4C003FD63E /* YHTimeLineListController.h */,
 				AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */,
 			);
@@ -172,6 +170,8 @@
 		AC02FF301D8FDE62003FD63E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC0432481DDC30F5008DCE20 /* YHSharePresentView.h */,
+				AC0432491DDC30F5008DCE20 /* YHSharePresentView.m */,
 				AC1CBF831D90D96C00FB8DD8 /* YHActionSheet.h */,
 				AC1CBF841D90D96C00FB8DD8 /* YHActionSheet.m */,
 				AC02FF401D8FE732003FD63E /* YHRefreshTableView.h */,
@@ -193,58 +193,66 @@
 		AC02FF371D8FE146003FD63E /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				AC1CBF861D90E49D00FB8DD8 /* FDTemplateLayoutCell */,
-				AC1CBF781D90D92900FB8DD8 /* SDPhotoBrowser */,
-				AC02FF381D8FE146003FD63E /* HYBMasonryAutoCellHeight */,
+				AC0432141DDC0BC9008DCE20 /* ThirdParty */,
 			);
 			path = Others;
 			sourceTree = "<group>";
 		};
-		AC02FF381D8FE146003FD63E /* HYBMasonryAutoCellHeight */ = {
+		AC0432141DDC0BC9008DCE20 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				AC02FF391D8FE146003FD63E /* UITableView+HYBCacheHeight.h */,
-				AC02FF3A1D8FE146003FD63E /* UITableView+HYBCacheHeight.m */,
-				AC02FF3B1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.h */,
-				AC02FF3C1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.m */,
+				AC0432151DDC0BC9008DCE20 /* FDTemplateLayoutCell */,
+				AC04321E1DDC0BC9008DCE20 /* HYBMasonryAutoCellHeight */,
+				AC0432231DDC0BC9008DCE20 /* SDPhotoBrowser */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		AC0432151DDC0BC9008DCE20 /* FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC0432161DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.h */,
+				AC0432171DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m */,
+				AC0432181DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.h */,
+				AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */,
+				AC04321A1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.h */,
+				AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */,
+				AC04321C1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.h */,
+				AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */,
+			);
+			path = FDTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
+		AC04321E1DDC0BC9008DCE20 /* HYBMasonryAutoCellHeight */ = {
+			isa = PBXGroup;
+			children = (
+				AC04321F1DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.h */,
+				AC0432201DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m */,
+				AC0432211DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.h */,
+				AC0432221DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m */,
 			);
 			path = HYBMasonryAutoCellHeight;
 			sourceTree = "<group>";
 		};
-		AC1CBF781D90D92900FB8DD8 /* SDPhotoBrowser */ = {
+		AC0432231DDC0BC9008DCE20 /* SDPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				AC1CBF791D90D92900FB8DD8 /* SDBrowserImageView.h */,
-				AC1CBF7A1D90D92900FB8DD8 /* SDBrowserImageView.m */,
-				AC1CBF7B1D90D92900FB8DD8 /* SDPhotoBrowser.h */,
-				AC1CBF7C1D90D92900FB8DD8 /* SDPhotoBrowser.m */,
-				AC1CBF7D1D90D92900FB8DD8 /* SDPhotoBrowserConfig.h */,
-				AC1CBF7E1D90D92900FB8DD8 /* SDWaitingView.h */,
-				AC1CBF7F1D90D92900FB8DD8 /* SDWaitingView.m */,
+				AC0432241DDC0BC9008DCE20 /* SDBrowserImageView.h */,
+				AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */,
+				AC0432261DDC0BC9008DCE20 /* SDPhotoBrowser.h */,
+				AC0432271DDC0BC9008DCE20 /* SDPhotoBrowser.m */,
+				AC0432281DDC0BC9008DCE20 /* SDPhotoBrowserConfig.h */,
+				AC0432291DDC0BC9008DCE20 /* SDWaitingView.h */,
+				AC04322A1DDC0BC9008DCE20 /* SDWaitingView.m */,
 			);
 			path = SDPhotoBrowser;
-			sourceTree = "<group>";
-		};
-		AC1CBF861D90E49D00FB8DD8 /* FDTemplateLayoutCell */ = {
-			isa = PBXGroup;
-			children = (
-				AC1CBF871D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.h */,
-				AC1CBF881D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.m */,
-				AC1CBF891D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.h */,
-				AC1CBF8A1D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.m */,
-				AC1CBF8B1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.h */,
-				AC1CBF8C1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.m */,
-				AC1CBF8D1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.h */,
-				AC1CBF8E1D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.m */,
-			);
-			path = FDTemplateLayoutCell;
 			sourceTree = "<group>";
 		};
 		AC1CBFA51D911A4C00FB8DD8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				AC2B6FC81D925FFB0004B6D9 /* HHUtils.h */,
-				AC2B6FC91D925FFB0004B6D9 /* HHUtils.m */,
+				AC2B6FC81D925FFB0004B6D9 /* YHUtils.h */,
+				AC2B6FC91D925FFB0004B6D9 /* YHUtils.m */,
 				AC1CBFB31D911D6F00FB8DD8 /* NSDate+LYXCategory.h */,
 				AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */,
 				AC1CBFB01D911BA300FB8DD8 /* HKPCommon.h */,
@@ -431,34 +439,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC1CBFA41D91154000FB8DD8 /* CellForWorkGroupRepost.m in Sources */,
-				AC1CBF911D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCell.m in Sources */,
-				AC1CBF801D90D92900FB8DD8 /* SDBrowserImageView.m in Sources */,
 				AC1CBF741D90CD2100FB8DD8 /* YHWorkGroupButton.m in Sources */,
+				AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				AC1CBF851D90D96C00FB8DD8 /* YHActionSheet.m in Sources */,
+				AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */,
 				AC1CBFA11D910F4900FB8DD8 /* YHWorkExperienceModel.m in Sources */,
-				AC1CBF811D90D92900FB8DD8 /* SDPhotoBrowser.m in Sources */,
 				AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */,
-				AC1CBF901D90E49D00FB8DD8 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				AC1CBF9F1D910F4900FB8DD8 /* YHEducationExperienceModel.m in Sources */,
-				AC1CBF8F1D90E49D00FB8DD8 /* UITableView+FDIndexPathHeightCache.m in Sources */,
-				AC1CBF821D90D92900FB8DD8 /* SDWaitingView.m in Sources */,
 				AC1CBFB51D911D6F00FB8DD8 /* NSDate+LYXCategory.m in Sources */,
 				ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */,
+				AC04324A1DDC30F5008DCE20 /* YHSharePresentView.m in Sources */,
 				AC1CBF771D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m in Sources */,
 				AC1CBFB21D911BA300FB8DD8 /* HKPCommon.m in Sources */,
 				AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */,
+				AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				AC1CBF981D910F0D00FB8DD8 /* YHUserInfo.m in Sources */,
+				AC0432431DDC0BC9008DCE20 /* UITableView+HYBCacheHeight.m in Sources */,
+				AC0432451DDC0BC9008DCE20 /* SDBrowserImageView.m in Sources */,
+				AC0432461DDC0BC9008DCE20 /* SDPhotoBrowser.m in Sources */,
 				AC1CBF711D90BDB100FB8DD8 /* HKPBotView.m in Sources */,
 				AC1CBFA01D910F4900FB8DD8 /* YHUserSetting.m in Sources */,
-				AC2B6FCA1D925FFB0004B6D9 /* HHUtils.m in Sources */,
-				AC02FF2D1D8FDE4C003FD63E /* ViewController.m in Sources */,
+				AC0432441DDC0BC9008DCE20 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
+				AC2B6FCA1D925FFB0004B6D9 /* YHUtils.m in Sources */,
+				AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
+				AC04323F1DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				AC1CBF951D910EDB00FB8DD8 /* YHWorkGroup.m in Sources */,
 				ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */,
-				AC02FF3D1D8FE146003FD63E /* UITableView+HYBCacheHeight.m in Sources */,
-				AC1CBF921D90E49D00FB8DD8 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */,
 				AC02FF421D8FE732003FD63E /* YHRefreshTableView.m in Sources */,
-				AC02FF3E1D8FE146003FD63E /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

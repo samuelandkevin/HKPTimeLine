@@ -1,9 +1,9 @@
 //
 //  YHQAListController.m
-//  PikeWay
+//  github:  https://github.com/samuelandkevin
 //
-//  Created by YHIOS002 on 16/8/29.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Created by samuelandkevin on 16/8/29.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import "YHTimeLineListController.h"
@@ -13,7 +13,8 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "YHWorkGroup.h"
 #import "YHUserInfoManager.h"
-#import "HHUtils.h"
+#import "YHUtils.h"
+#import "YHSharePresentView.h"
 
 @interface YHTimeLineListController ()<UITableViewDelegate,UITableViewDataSource,CellForWorkGroupDelegate,CellForWorkGroupRepostDelegate>{
     int _currentRequestPage; //当前请求页面
@@ -33,13 +34,29 @@
 - (void)viewDidLoad{
     [self initUI];
     [self requestDataLoadNew:YES];
-    //kun调试用
+    
+    //设置UserId 
     [YHUserInfoManager sharedInstance].userInfo.uid = @"1";
 }
 
 - (void)initUI{
     
-    self.title = @"朋友圈";
+    self.title = @"HKPTimeLine";
+    
+    //设置导航栏背景颜色
+    UIColor * color = [UIColor colorWithRed:0.f green:191.f / 255 blue:143.f / 255 alpha:1];
+    self.navigationController.navigationBar.barTintColor = color;
+    self.navigationController.navigationBar.translucent = NO;
+    
+    NSShadow *shadow = [[NSShadow alloc]init];
+    shadow.shadowColor = [UIColor colorWithWhite:0.871 alpha:1.000];
+    shadow.shadowOffset = CGSizeMake(0.5, 0.5);
+
+    //设置导航栏标题颜色
+    NSDictionary *attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
+    self.navigationController.navigationBar.titleTextAttributes = attributes;
+    
+    
     
     self.tableView = [[YHRefreshTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate   = self;
@@ -197,7 +214,6 @@
 - (void)randomModel:(YHWorkGroup *)model totalCount:(int)totalCount{
     
     model.type = arc4random()%totalCount %2? DynType_Forward:DynType_Original;
-//    model.type = DynType_Forward;//kun调试
     if (model.type == DynType_Forward) {
         model.forwardModel = [YHWorkGroup new];
         [self creatOriModel:model.forwardModel totalCount:totalCount];
@@ -209,7 +225,20 @@
 - (void)creatOriModel:(YHWorkGroup *)model totalCount:(int)totalCount{
     YHUserInfo *userInfo = [YHUserInfo new];
     model.userInfo = userInfo;
-    model.userInfo.avatarUrl = [NSURL URLWithString:@""];
+  
+    
+    NSArray *avtarArray = @[
+@"http://testapp.gtax.cn/images/2016/11/05/812eb442b6a645a99be476d139174d3c.png!m90x90.png",
+@"http://testapp.gtax.cn/images/2016/11/09/64a62eaaff7b466bb8fab12a89fe5f2f.png!m90x90.png",
+@"https://testapp.gtax.cn/images/2016/09/30/ad0d18a937b248f88d29c2f259c14b5e.jpg!m90x90.jpg",
+@"https://testapp.gtax.cn/images/2016/09/14/c6ab40b1bc0e4bf19e54107ee2299523.jpg!m90x90.jpg",
+@"http://testapp.gtax.cn/images/2016/11/14/8d4ee23d9f5243f98c79b9ce0c699bd9.png!m90x90.png",
+@"https://testapp.gtax.cn/images/2016/09/14/8cfa9bd12e6844eea0a2e940257e1186.jpg!m90x90.jpg"];
+    int avtarIndex = arc4random() % avtarArray.count;
+    if (avtarIndex < avtarArray.count) {
+        model.userInfo.avatarUrl = [NSURL URLWithString:avtarArray[avtarIndex]];
+    }
+    
     
     CGFloat myIdLength = arc4random() % totalCount;
     int result = (int)myIdLength % 2;
@@ -241,12 +270,11 @@
     CGFloat jLength = arc4random() % 8 + 1;
     NSMutableString *jStr = [NSMutableString new];
     for (int i = 0; i < jLength; i++) {
-        [jStr appendString: @"测试职位"];
+        [jStr appendString: @"随机职位"];
     }
     model.userInfo.job = jStr;
     
     CGFloat qlength = arc4random() % totalCount + 5;
-//    qlength = 1;//kun调试
     NSMutableString *qStr = [[NSMutableString alloc] init];
     for (NSUInteger i = 0; i < qlength; ++i) {
         [qStr appendString:@"测试数据很长，测试数据很长."];
@@ -256,14 +284,59 @@
     
     
     CGFloat picLength = arc4random() % 9;
+
+    //原图
+    NSArray *oriPName = @[
+@"https://testapp.gtax.cn/images/2016/08/25/2241c4b32b8445da87532d6044888f3d.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/0abd8670e96e4357961fab47ba3a1652.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/5cd8aa1f1b1f4b2db25c51410f473e60.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/5e8b978854ef4a028d284f6ddc7512e0.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/03c58da45900428796fafcb3d77b6fad.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/dbee521788da494683ef336432028d48.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/4cd95742b6744114ac8fa41a72f83257.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/4d49888355a941cab921c9f1ad118721.jpg",
+    
+@"https://testapp.gtax.cn/images/2016/08/25/ea6a22e8b4794b9ba63fd6ee587be4d1.jpg"];
+    
     NSMutableArray *oriPArr = [NSMutableArray new];
-    NSMutableArray *thumbPArr = [NSMutableArray new];
-    for (int i = 0; i < picLength; i++) {
-        [oriPArr addObject:[NSURL URLWithString:@"http://www.baidu.com"]];
-        [thumbPArr addObject:[NSURL URLWithString:@"http://www.baidu.com"]];
+    for (NSString *pName in oriPName) {
+        [oriPArr addObject:[NSURL URLWithString:pName]];
     }
-    model.originalPicUrls = oriPArr;
-    model.thumbnailPicUrls = thumbPArr;
+    
+    //小图
+    NSArray *thumbPName = @[
+                             @"https://testapp.gtax.cn/images/2016/08/25/2241c4b32b8445da87532d6044888f3d.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/0abd8670e96e4357961fab47ba3a1652.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/5cd8aa1f1b1f4b2db25c51410f473e60.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/5e8b978854ef4a028d284f6ddc7512e0.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/03c58da45900428796fafcb3d77b6fad.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/dbee521788da494683ef336432028d48.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/4cd95742b6744114ac8fa41a72f83257.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/4d49888355a941cab921c9f1ad118721.jpg!t300x300.jpg",
+                             
+                             @"https://testapp.gtax.cn/images/2016/08/25/ea6a22e8b4794b9ba63fd6ee587be4d1.jpg!t300x300.jpg"];
+    
+    NSMutableArray *thumbPArr = [NSMutableArray new];
+    for (NSString *pName in thumbPName) {
+        [thumbPArr addObject:[NSURL URLWithString:pName]];
+    }
+
+    model.originalPicUrls = [oriPArr subarrayWithRange:NSMakeRange(0, picLength)];
+    model.thumbnailPicUrls = [thumbPArr subarrayWithRange:NSMakeRange(0, picLength)];
 }
 
 #pragma mark - YHRefreshTableViewDelegate
@@ -277,6 +350,10 @@
 
 
 #pragma mark - CellForWorkGroupDelegate
+- (void)onAvatarInCell:(CellForWorkGroup *)cell{
+
+}
+
 - (void)onMoreInCell:(CellForWorkGroup *)cell{
     DDLog(@"查看详情");
     if (cell.indexPath.row < [self.dataArray count]) {
@@ -292,16 +369,30 @@
 }
 
 - (void)onLikeInCell:(CellForWorkGroup *)cell{
+    if (cell.indexPath.row < [self.dataArray count]) {
+        YHWorkGroup *model = self.dataArray[cell.indexPath.row];
+        
+        BOOL isLike = !model.isLike;
+        
+        model.isLike = isLike;
+        if (isLike) {
+            model.likeCount += 1;
+            
+        }else{
+            model.likeCount -= 1;
+        }
+        
+        [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
 
 }
 
 - (void)onShareInCell:(CellForWorkGroup *)cell{
-
+    if (cell.indexPath.row < [self.dataArray count]){
+        [self _shareWithCell:cell];
+    }
 }
 
-- (void)onAvatarInCell:(CellForWorkGroup *)cell{
-
-}
 
 - (void)onDeleteInCell:(CellForWorkGroup *)cell{
     if (cell.indexPath.row < [self.dataArray count]) {
@@ -310,6 +401,12 @@
 }
 
 #pragma mark - CellForWorkGroupRepostDelegate
+
+- (void)onAvatarInRepostCell:(CellForWorkGroupRepost *)cell{
+
+}
+
+
 - (void)onTapRepostViewInCell:(CellForWorkGroupRepost *)cell{
 }
 
@@ -317,9 +414,31 @@
 }
 
 - (void)onLikeInRepostCell:(CellForWorkGroupRepost *)cell{
+    
+    if (cell.indexPath.row < [self.dataArray count]) {
+        YHWorkGroup *model = self.dataArray[cell.indexPath.row];
+        
+        BOOL isLike = !model.isLike;
+        //更新本地数据源
+        model.isLike = isLike;
+        if (isLike) {
+            model.likeCount += 1;
+            
+        }else{
+            model.likeCount -= 1;
+        }
+        [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
+    }
+
+    
 }
 
 - (void)onShareInRepostCell:(CellForWorkGroupRepost *)cell{
+    
+    if (cell.indexPath.row < [self.dataArray count]){
+        [self _shareWithCell:cell];
+    }
 }
 
 - (void)onDeleteInRepostCell:(CellForWorkGroupRepost *)cell{
@@ -341,7 +460,7 @@
 - (void)_deleteDynAtIndexPath:(NSIndexPath *)indexPath dynamicId:(NSString *)dynamicId{
     
     WeakSelf
-    [HHUtils showAlertWithTitle:@"删除动态" message:@"您确定要删除此动态?" okTitle:@"确定" cancelTitle:@"取消" inViewController:self dismiss:^(BOOL resultYes) {
+    [YHUtils showAlertWithTitle:@"删除动态" message:@"您确定要删除此动态?" okTitle:@"确定" cancelTitle:@"取消" inViewController:self dismiss:^(BOOL resultYes) {
         
         if (resultYes)
         {
@@ -356,6 +475,74 @@
     }];
     
 }
+
+- (void)_shareWithCell:(UITableViewCell *)cell{
+    
+    CellForWorkGroup *cellOri     = nil;
+    CellForWorkGroupRepost *cellRepost = nil;
+    BOOL isRepost = NO;
+    if ([cell isKindOfClass:[CellForWorkGroup class]]) {
+        cellOri = (CellForWorkGroup *)cell;
+    }
+    else if ([cell isKindOfClass:[CellForWorkGroupRepost class]]) {
+        cellRepost = (CellForWorkGroupRepost *)cell;
+        isRepost   = YES;
+    }
+    else
+        return;
+    
+    
+    YHWorkGroup *model = [YHWorkGroup new];
+    if (isRepost) {
+        model = cellRepost.model.forwardModel;
+    }
+    else{
+        model = cellOri.model;
+    }
+    
+    YHSharePresentView *shareView = [[YHSharePresentView alloc] init];
+    shareView.shareType = ShareType_WorkGroup;
+    [shareView show];
+    [shareView dismissHandler:^(BOOL isCanceled, NSInteger index) {
+        if (!isCanceled) {
+            switch (index)
+            {
+                case 2:
+                {
+                    DDLog(@"动态");
+                }
+                    break;
+                case 3:
+                {
+
+                }
+                    break;
+                    
+                case 0:
+                {
+                    //朋友圈
+                    DDLog(@"朋友圈");
+                    
+                }
+                    break;
+                case 1:
+                {
+                    //微信好友
+                    DDLog(@"微信好友");
+                   
+                }
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+    }];
+    
+    
+    
+}
+
 
 #pragma mark - UIScrollViewDelegate
 

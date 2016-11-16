@@ -1,9 +1,9 @@
 //
 //  YHUserInfoManager.m
-//  PikeWay
-//
+//  github:  https://github.com/samuelandkevin
+//  CSDN:  http://blog.csdn.net/samuelandkevin
 //  Created by kun on 16/4/25.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Copyright © 2016年 HKP. All rights reserved.
 //  用户信息管理
 
 #import "YHUserInfoManager.h"

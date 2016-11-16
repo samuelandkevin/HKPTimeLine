@@ -2,15 +2,13 @@
 //  HHUtils.m
 //  HipHopBattle
 //
-//  Created by Troy on 14-6-26.
+//  Created by samuelandkevin on 14-6-26.
 //  Copyright (c) 2014年 Dope Beats Co.,Ltd. All rights reserved.
 //
 
-#import "HHUtils.h"
+#import "YHUtils.h"
 #import <AVFoundation/AVFoundation.h>
 #import <CommonCrypto/CommonCrypto.h>
-//#import "HHCommon.h"
-//#include <sys/syscall.h>
 #import <sys/utsname.h>
 #import "AppDelegate.h"
 #import <CommonCrypto/CommonDigest.h>
@@ -105,7 +103,7 @@ done:
 
 static AssistObject *g_assistObj = nil;
 
-@interface HHUtils ()<UIAlertViewDelegate>
+@interface YHUtils ()<UIAlertViewDelegate>
 {
     
 }
@@ -113,7 +111,7 @@ static AssistObject *g_assistObj = nil;
 @end
 
 
-@implementation HHUtils
+@implementation YHUtils
 
 + (long long)freeDiskSpaceInBytes{
     struct statfs buf;

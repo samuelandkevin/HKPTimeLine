@@ -1,14 +1,14 @@
 //
 //  YHWorkExperienceModel.h
-//  PikeWay
-//
-//  Created by YHIOS003 on 16/5/17.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  github:  https://github.com/samuelandkevin
+//  CSDN:  http://blog.csdn.net/samuelandkevin
+//  Created by samuelandkevin on 16/5/17.
+//  Copyright © 2016年 HKP. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface YHWorkExperienceModel : NSObject<NSCopying>
+@interface YHWorkExperienceModel : NSObject
 
 @property(nonatomic,copy)   NSString * workExpId;
 @property(nonatomic,strong) NSString * company;

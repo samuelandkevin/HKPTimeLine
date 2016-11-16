@@ -1,9 +1,9 @@
 //
 //  YHUserInfo.h
-//  PikeWay
+//  github:  https://github.com/samuelandkevin
 //
 //  Created by kun on 16/4/25.
-//  Copyright © 2016年 YHSoft. All rights reserved.
+//  Copyright © 2016年 HKP. All rights reserved.
 //  当前用户Model
 
 #import <Foundation/Foundation.h>
