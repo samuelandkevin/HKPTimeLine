@@ -17,11 +17,11 @@
        DEMO的数据来源不是来自公司服务器，是通过函数随机产生，可以校验使用Masonry手写代码的AutoLayout是否有误。以下这部分代码大家可以在实际开发中通过后台服务器获取的数据代替。
 
 
-[objc] view plain copy 在CODE上查看代码片派生到我的代码片
-#pragma mark - 模拟产生数据源  
-- (void)randomModel:(YHWorkGroup *)model totalCount:(int)totalCount{  
+## 模拟产生数据源
+```  
+-(void)randomModel:(YHWorkGroup *)model totalCount:(int)totalCount{  
       
-    model.type = arc4random()%totalCount %2? DynType_Forward:DynType_Original;  
+    model.type = arc4random()%totalCount %2? 	DynType_Forward:DynType_Original;  
     if (model.type == DynType_Forward) {  
         model.forwardModel = [YHWorkGroup new];  
         [self creatOriModel:model.forwardModel totalCount:totalCount];  
@@ -30,13 +30,11 @@
       
 }  
   
-- (void)creatOriModel:(YHWorkGroup *)model totalCount:(int)totalCount{  
+-(void)creatOriModel:(YHWorkGroup *)model totalCount:(int)totalCount{  
     YHUserInfo *userInfo = [YHUserInfo new];  
     model.userInfo = userInfo;  
-    
-      
-    NSArray *avtarArray = @[  
-@"http://testapp.gtax.cn/images/2016/11/05/812eb442b6a645a99be476d139174d3c.png!m90x90.png",  
+    NSArray *avtarArray = @[ 
+    @"http://testapp.gtax.cn/images/2016/11/05/812eb442b6a645a99be476d139174d3c.png!m90x90.png",  
 @"http://testapp.gtax.cn/images/2016/11/09/64a62eaaff7b466bb8fab12a89fe5f2f.png!m90x90.png",  
 @"https://testapp.gtax.cn/images/2016/09/30/ad0d18a937b248f88d29c2f259c14b5e.jpg!m90x90.jpg",  
 @"https://testapp.gtax.cn/images/2016/09/14/c6ab40b1bc0e4bf19e54107ee2299523.jpg!m90x90.jpg",  
@@ -46,8 +44,7 @@
     if (avtarIndex < avtarArray.count) {  
         model.userInfo.avatarUrl = [NSURL URLWithString:avtarArray[avtarIndex]];  
     }  
-      
-      
+        
     CGFloat myIdLength = arc4random() % totalCount;  
     int result = (int)myIdLength % 2;  
     model.userInfo.uid = result ?   [YHUserInfoManager sharedInstance].userInfo.uid:@"2";  
@@ -146,21 +143,18 @@
     model.originalPicUrls = [oriPArr subarrayWithRange:NSMakeRange(0, picLength)];  
     model.thumbnailPicUrls = [thumbPArr subarrayWithRange:NSMakeRange(0, picLength)];  
 }  
-
+```
        DMEO中动态首页所涉及的View使用简要说明,如图
-   
-
   布局中,可能会遇到约束冲突,可以打开符号断点，这样系统会提示开发中哪些约束冲突。
 
       
-
       对应多个控件水平排列,记得设计水平紧抱性(Content Hugging Priority)和水平抗压性（Content Compressing Resistance Priority）,垂直方向也如此。
 
        
        计算行高，调用了FDTemplateLayoutCell的API,
-
-- (CGFloat)fd_heightForCellWithIdentifier:(NSString *)identifier configuration:(void (^)(id cell))configuration;
-
+```
+-(CGFloat)fd_heightForCellWithIdentifier:(NSString *)identifier configuration:(void (^)(id cell))configuration;
+```
 
 
     
