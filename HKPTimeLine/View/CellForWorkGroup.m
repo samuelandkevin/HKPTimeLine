@@ -9,6 +9,7 @@
 #import "CellForWorkGroup.h"
 #import "YHWorkGroupPhotoContainer.h"
 #import "YHUserInfoManager.h"
+#import "UITableViewCell+HYBMasonryAutoCellHeight.h"
 
 const CGFloat contentLabelFontSize = 13.0;
 CGFloat maxContentLabelHeight = 0;  //根据具体font而定
@@ -32,6 +33,16 @@ const CGFloat moreBtnWidth    = 60;
 
 @property (nonatomic,strong)YHWorkGroupPhotoContainer *picContainerView;
 @property (nonatomic,strong)UIView      *viewSeparator;
+
+//约束
+@property (nonatomic,strong)NSLayoutConstraint *cstHeightlbMore;
+@property (nonatomic,strong)NSLayoutConstraint *cstHeightlbDelete;
+@property (nonatomic,strong)NSLayoutConstraint *cstCenterYlbDelete;
+@property (nonatomic,strong)NSLayoutConstraint *cstLeftlbDelete;
+@property (nonatomic,strong)NSLayoutConstraint *cstHeightlbContent;
+@property (nonatomic,strong)NSLayoutConstraint *cstHeightPicContainer;
+@property (nonatomic,strong)NSLayoutConstraint *cstTopPicContainer;
+@property (nonatomic,strong)NSLayoutConstraint *cstTopViewBottom;
 @end
 
 @implementation CellForWorkGroup
@@ -82,56 +93,56 @@ const CGFloat moreBtnWidth    = 60;
     self.labelContent.numberOfLines = 0;
     [self.contentView addSubview:self.labelContent];
     
-     self.labelDelete = [UILabel new];
-     self.labelDelete.font = [UIFont systemFontOfSize:14.0f];
-     self.labelDelete.textColor = RGBCOLOR(61, 95, 155);
-     self.labelDelete.userInteractionEnabled = YES;
-     UITapGestureRecognizer *deleteTap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deleteTap)];
-     [self.labelDelete addGestureRecognizer:deleteTap];
-     [self.contentView addSubview:self.labelDelete];
+    self.labelDelete = [UILabel new];
+    self.labelDelete.font = [UIFont systemFontOfSize:14.0f];
+    self.labelDelete.textColor = RGBCOLOR(61, 95, 155);
+    self.labelDelete.userInteractionEnabled = YES;
+    UITapGestureRecognizer *deleteTap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deleteTap)];
+    [self.labelDelete addGestureRecognizer:deleteTap];
+    [self.contentView addSubview:self.labelDelete];
     
-     self.labelMore = [UILabel new];
-     self.labelMore.font = [UIFont systemFontOfSize:14.0f];
-     self.labelMore.textColor = RGBCOLOR(0, 191, 143);
-     self.labelMore.userInteractionEnabled = YES;
-     UITapGestureRecognizer *moreTap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onMoreTap)];
-     [self.labelMore addGestureRecognizer:moreTap];
-     [self.contentView addSubview:self.labelMore];
+    self.labelMore = [UILabel new];
+    self.labelMore.font = [UIFont systemFontOfSize:14.0f];
+    self.labelMore.textColor = RGBCOLOR(0, 191, 143);
+    self.labelMore.userInteractionEnabled = YES;
+    UITapGestureRecognizer *moreTap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onMoreTap)];
+    [self.labelMore addGestureRecognizer:moreTap];
+    [self.contentView addSubview:self.labelMore];
     
-
+    
     self.picContainerView = [[YHWorkGroupPhotoContainer alloc] initWithWidth:SCREEN_WIDTH-20];
-     [self.contentView addSubview:self.picContainerView];
+    [self.contentView addSubview:self.picContainerView];
     
-     self.viewBottom = [HKPBotView new];
-     self.viewBottom.delegate = self;
-     [self.contentView addSubview:self.viewBottom];
+    self.viewBottom = [HKPBotView new];
+    self.viewBottom.delegate = self;
+    [self.contentView addSubview:self.viewBottom];
     
-     self.viewSeparator = [UIView new];
-     self.viewSeparator.backgroundColor = RGBCOLOR(244, 244, 244);
-     [self.contentView addSubview:self.viewSeparator];
-
-     [self layoutUI];
+    self.viewSeparator = [UIView new];
+    self.viewSeparator.backgroundColor = RGBCOLOR(244, 244, 244);
+    [self.contentView addSubview:self.viewSeparator];
+    
+    [self layoutUI];
     
     //
-//    self.labelMore.backgroundColor    = [UIColor yellowColor];
-//    self.labelDelete.backgroundColor  = [UIColor blueColor];
-//    self.labelContent.backgroundColor = [UIColor redColor];
+    //    self.labelMore.backgroundColor    = [UIColor yellowColor];
+    //    self.labelDelete.backgroundColor  = [UIColor blueColor];
+    //    self.labelContent.backgroundColor = [UIColor redColor];
 }
 
 - (void)layoutUI{
-      __weak typeof(self)weakSelf = self;
-     [self.imgvAvatar mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(weakSelf.contentView).offset(15);
-         make.left.equalTo(weakSelf.contentView).offset(15);
-         make.width.height.mas_equalTo(45);
-     }];
+    __weak typeof(self)weakSelf = self;
+    [self.imgvAvatar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.contentView).offset(15);
+        make.left.equalTo(weakSelf.contentView).offset(15);
+        make.width.height.mas_equalTo(45);
+    }];
     
     [self.labelName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.contentView).offset(15);
         make.left.equalTo(weakSelf.imgvAvatar.mas_right).offset(10);
         make.right.equalTo(weakSelf.labelIndustry.mas_left).offset(-10);
     }];
-   
+    
     
     [self.labelIndustry mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(weakSelf.labelName.mas_bottom);
@@ -149,7 +160,7 @@ const CGFloat moreBtnWidth    = 60;
     [self.labelPubTime setContentHuggingPriority:251 forAxis:UILayoutConstraintAxisHorizontal];
     [self.labelPubTime setContentCompressionResistancePriority:751 forAxis:UILayoutConstraintAxisHorizontal];
     
-
+    
     [self.labelCompany mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.labelName.mas_bottom).offset(9);
         make.left.equalTo(weakSelf.labelName.mas_left);
@@ -162,60 +173,78 @@ const CGFloat moreBtnWidth    = 60;
         make.right.equalTo(weakSelf.contentView).offset(-10);
         make.width.mas_greaterThanOrEqualTo(80);
     }];
-   
+    
     [self.labelJob setContentHuggingPriority:249 forAxis:UILayoutConstraintAxisHorizontal];
     [self.labelJob setContentCompressionResistancePriority:749 forAxis:UILayoutConstraintAxisHorizontal];
     
-    
+    _cstHeightlbContent = [NSLayoutConstraint constraintWithItem:self.labelContent attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
+    [self.contentView addConstraint:_cstHeightlbContent];
     [self.labelContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.imgvAvatar.mas_bottom).offset(11);
         make.left.equalTo(weakSelf.contentView).offset(10);
         make.right.equalTo(weakSelf.contentView).offset(-10);
         make.bottom.equalTo(weakSelf.labelMore.mas_top).offset(-11);
     }];
-
+    
     // 不然在6/6plus上就不准确了
     self.labelContent.preferredMaxLayoutWidth = SCREEN_WIDTH - 20;
     
-    
+    _cstHeightlbMore = [NSLayoutConstraint constraintWithItem:self.labelMore attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
+    [self.contentView addConstraint:_cstHeightlbMore];
     [self.labelMore mas_makeConstraints:^(MASConstraintMaker *make) {
-
+        
         make.top.equalTo(weakSelf.labelContent.mas_bottom).offset(11);
         make.left.equalTo(weakSelf.contentView).offset(10);
-        make.height.mas_equalTo(0);
         make.width.mas_equalTo(80);
     }];
     
+    
+    _cstHeightlbDelete = [NSLayoutConstraint constraintWithItem:self.labelDelete attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
+    [self.contentView addConstraint:_cstHeightlbDelete];
+    _cstCenterYlbDelete = [NSLayoutConstraint constraintWithItem:self.labelDelete attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.labelMore attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+    [self.contentView addConstraint:_cstCenterYlbDelete];
+    _cstLeftlbDelete    = [NSLayoutConstraint constraintWithItem:self.labelDelete attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.labelMore attribute:NSLayoutAttributeRight multiplier:1.0 constant:10];
+    [self.contentView addConstraint:_cstLeftlbDelete];
     [self.labelDelete mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(weakSelf.labelMore.mas_centerY);
-        make.left.equalTo(weakSelf.labelMore.mas_right).offset(10);
-        make.height.mas_equalTo(0);
         make.width.mas_equalTo(80);
     }];
     
-
+    _cstHeightPicContainer = [NSLayoutConstraint constraintWithItem:self.picContainerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
+    [self.contentView addConstraint:_cstHeightPicContainer];
+    _cstTopPicContainer = [NSLayoutConstraint constraintWithItem:self.picContainerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.labelMore attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10];
+    [self.contentView addConstraint:_cstTopPicContainer];
     [self.picContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.labelMore.mas_bottom).offset(10);
         make.left.equalTo(weakSelf.contentView).offset(10);
-        make.height.mas_equalTo(0);
         make.right.mas_greaterThanOrEqualTo(weakSelf.contentView).offset(-10);
     }];
     [self.picContainerView setContentHuggingPriority:249 forAxis:UILayoutConstraintAxisVertical];
     [self.picContainerView setContentCompressionResistancePriority:749 forAxis:UILayoutConstraintAxisVertical];
     
-    
+    _cstTopViewBottom = [NSLayoutConstraint constraintWithItem:self.viewBottom attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.picContainerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    _cstTopViewBottom.priority = UILayoutPriorityDefaultLow;
+    [self.contentView addConstraint:_cstTopViewBottom];
     [self.viewBottom mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.picContainerView.mas_bottom).offset(15).priorityLow();
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
     }];
     
+    /*******使用FDTemplateLayoutCell*******/
+    //    [self.viewSeparator mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.top.equalTo(weakSelf.viewBottom.mas_bottom);
+    //        make.left.right.mas_equalTo(0);
+    //        make.height.mas_equalTo(15);
+    //        make.bottom.equalTo(weakSelf.contentView);
+    //    }];
+    
+    
+    /*******使用HYBMasonryAutoCell*******/
     [self.viewSeparator mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.viewBottom.mas_bottom);
         make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(15);
-        make.bottom.equalTo(weakSelf.contentView);
     }];
+    
+    self.hyb_lastViewInCell = self.viewSeparator;
     
 }
 
@@ -232,7 +261,7 @@ const CGFloat moreBtnWidth    = 60;
     /*************动态内容*************/
     maxContentLabelHeight   = _labelContent.font.pointSize * 6;
     self.labelContent.text  = _model.msgContent;
-    WeakSelf
+    
     //查看详情按钮
     self.labelMore.text     = @"查看全部";
     CGFloat moreBtnH = 0;
@@ -242,46 +271,34 @@ const CGFloat moreBtnWidth    = 60;
         if (_model.isOpening) { // 如果需要展开
             
             _labelMore.text = @"收起";
-            [self.labelContent mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(weakSelf.imgvAvatar.mas_bottom).offset(11);
-                make.left.equalTo(weakSelf.contentView).offset(10);
-                make.right.equalTo(weakSelf.contentView).offset(-10);
-                make.bottom.equalTo(weakSelf.labelMore.mas_top).offset(-11);
-            }];
+            _cstHeightlbContent.constant = HUGE;
         } else {
             _labelMore.text = @"查看全部";
-            [_labelContent mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(maxContentLabelHeight);
-                
-            }];
+            _cstHeightlbContent.constant = maxContentLabelHeight;
         }
+    }else{
+            _cstHeightlbContent.constant = maxContentLabelHeight;
     }
-
+    
     //删除按钮
     self.labelDelete.text   = @"删除";
     CGFloat delBtnH = 0;
     if ([_model.userInfo.uid isEqualToString:[YHUserInfoManager sharedInstance].userInfo.uid]) {
         delBtnH = deleteBtnHeight;
     }
-
+    
     //更新“查看详情”和“删除按钮”的约束
-    [_labelMore mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(moreBtnH);
-    }];
-
-
-    [_labelDelete mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(delBtnH);
-        
-        if (moreBtnH) {
-            make.left.equalTo(weakSelf.labelMore.mas_right).offset(10);
-            make.centerY.equalTo(weakSelf.labelMore.mas_centerY);
-        }else{
-            make.left.equalTo(weakSelf.labelMore.mas_right).offset(-80);
-            make.centerY.equalTo(weakSelf.labelMore.mas_centerY).offset(11);
-        }
-    }];
-
+    _cstHeightlbMore.constant   = moreBtnH;
+    _cstHeightlbDelete.constant = delBtnH;
+    
+    if (moreBtnH) {
+        _cstLeftlbDelete.constant    = 10;
+        _cstCenterYlbDelete.constant = 0;
+    }else{
+        _cstLeftlbDelete.constant    = -80;
+        _cstCenterYlbDelete.constant = 11;
+    }
+    
     
     
     CGFloat picTop = 0;
@@ -293,23 +310,20 @@ const CGFloat moreBtnWidth    = 60;
         picTop = 0;
     }
     
-    [_picContainerView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.labelMore.mas_bottom).offset(picTop);
-           
-    }];
-
-
-    self.picContainerView.picUrlArray = _model.thumbnailPicUrls;
+    _cstTopPicContainer.constant    = picTop;
+    
+    
+    CGFloat picContainerH = [self.picContainerView setupPicUrlArray:_model.thumbnailPicUrls];
     self.picContainerView.picOriArray = _model.originalPicUrls;
-
+    
+    _cstHeightPicContainer.constant = picContainerH;
+    
     CGFloat viewBottomTop = 0;
     if(_model.thumbnailPicUrls.count){
         viewBottomTop = 15;
     }
-    [_viewBottom mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.picContainerView.mas_bottom).offset(viewBottomTop).priorityLow();
-    }];
-
+    _cstTopViewBottom.constant = viewBottomTop;
+    
     
     _viewBottom.btnLike.selected = _model.isLike? YES: NO;
     [_viewBottom.btnComment setTitle:[NSString stringWithFormat:@"%d",_model.commentCount] forState:UIControlStateNormal];//评论数
@@ -319,7 +333,7 @@ const CGFloat moreBtnWidth    = 60;
 #pragma mark - Action
 - (void)onMoreTap
 {
-  
+    
     if (_delegate && [_delegate respondsToSelector:@selector(onMoreInCell:)]) {
         [_delegate onMoreInCell:self];
     }
@@ -345,11 +359,11 @@ const CGFloat moreBtnWidth    = 60;
 
 #pragma mark - HKPBotViewDelegate
 - (void)onAvatar{
-
+    
 }
 
 - (void)onMore{
-
+    
 }
 
 - (void)onComment{
@@ -377,7 +391,7 @@ const CGFloat moreBtnWidth    = 60;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

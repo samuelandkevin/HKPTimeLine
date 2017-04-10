@@ -10,10 +10,6 @@
 		AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF2C1D8FDE4C003FD63E /* YHTimeLineListController.m */; };
 		AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF321D8FDED0003FD63E /* CellForWorkGroup.m */; };
 		AC02FF421D8FE732003FD63E /* YHRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC02FF411D8FE732003FD63E /* YHRefreshTableView.m */; };
-		AC04323F1DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432171DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m */; };
-		AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */; };
-		AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */; };
-		AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		AC0432451DDC0BC9008DCE20 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */; };
 		AC0432461DDC0BC9008DCE20 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0432271DDC0BC9008DCE20 /* SDPhotoBrowser.m */; };
 		AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC04322A1DDC0BC9008DCE20 /* SDWaitingView.m */; };
@@ -32,6 +28,8 @@
 		AC1CBFB51D911D6F00FB8DD8 /* NSDate+LYXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1CBFB41D911D6F00FB8DD8 /* NSDate+LYXCategory.m */; };
 		AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */; };
 		AC2B6FCA1D925FFB0004B6D9 /* YHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B6FC91D925FFB0004B6D9 /* YHUtils.m */; };
+		AC73DF501E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC73DF4D1E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.m */; };
+		AC73DF511E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AC73DF4F1E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC0B7B1D8FDBCF00ACFEBD /* main.m */; };
 		ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCC0B7E1D8FDBCF00ACFEBD /* AppDelegate.m */; };
 		ACCC0B851D8FDBCF00ACFEBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCC0B831D8FDBCF00ACFEBD /* Main.storyboard */; };
@@ -50,14 +48,6 @@
 		AC02FF3F1D8FE25E003FD63E /* HKPTimeLine.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPTimeLine.pch; sourceTree = "<group>"; };
 		AC02FF401D8FE732003FD63E /* YHRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHRefreshTableView.h; sourceTree = "<group>"; };
 		AC02FF411D8FE732003FD63E /* YHRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHRefreshTableView.m; sourceTree = "<group>"; };
-		AC0432161DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
-		AC0432171DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
-		AC0432181DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
-		AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
-		AC04321A1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
-		AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
-		AC04321C1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
-		AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 		AC0432241DDC0BC9008DCE20 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		AC0432251DDC0BC9008DCE20 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
 		AC0432261DDC0BC9008DCE20 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
@@ -95,6 +85,10 @@
 		AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUserInfoManager.m; sourceTree = "<group>"; };
 		AC2B6FC81D925FFB0004B6D9 /* YHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUtils.h; sourceTree = "<group>"; };
 		AC2B6FC91D925FFB0004B6D9 /* YHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUtils.m; sourceTree = "<group>"; };
+		AC73DF4C1E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HYBCacheHeight.h"; sourceTree = "<group>"; };
+		AC73DF4D1E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
+		AC73DF4E1E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
+		AC73DF4F1E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
 		ACCC0B771D8FDBCF00ACFEBD /* HKPTimeLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKPTimeLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCC0B7B1D8FDBCF00ACFEBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACCC0B7D1D8FDBCF00ACFEBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,25 +189,10 @@
 		AC0432141DDC0BC9008DCE20 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				AC0432151DDC0BC9008DCE20 /* FDTemplateLayoutCell */,
+				AC73DF4B1E9B64BE00BEDF10 /* HYBMasonryAutoCellHeight */,
 				AC0432231DDC0BC9008DCE20 /* SDPhotoBrowser */,
 			);
 			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		AC0432151DDC0BC9008DCE20 /* FDTemplateLayoutCell */ = {
-			isa = PBXGroup;
-			children = (
-				AC0432161DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.h */,
-				AC0432171DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m */,
-				AC0432181DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.h */,
-				AC0432191DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m */,
-				AC04321A1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.h */,
-				AC04321B1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m */,
-				AC04321C1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.h */,
-				AC04321D1DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m */,
-			);
-			path = FDTemplateLayoutCell;
 			sourceTree = "<group>";
 		};
 		AC0432231DDC0BC9008DCE20 /* SDPhotoBrowser */ = {
@@ -250,6 +229,17 @@
 				AC2B6FC61D9215200004B6D9 /* YHUserInfoManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		AC73DF4B1E9B64BE00BEDF10 /* HYBMasonryAutoCellHeight */ = {
+			isa = PBXGroup;
+			children = (
+				AC73DF4C1E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.h */,
+				AC73DF4D1E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.m */,
+				AC73DF4E1E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.h */,
+				AC73DF4F1E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.m */,
+			);
+			path = HYBMasonryAutoCellHeight;
 			sourceTree = "<group>";
 		};
 		ACCC0B6E1D8FDBCF00ACFEBD = {
@@ -333,6 +323,7 @@
 				TargetAttributes = {
 					ACCC0B761D8FDBCF00ACFEBD = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 6C6E567289;
 					};
 				};
 			};
@@ -422,27 +413,25 @@
 			files = (
 				AC1CBFA41D91154000FB8DD8 /* CellForWorkGroupRepost.m in Sources */,
 				AC1CBF741D90CD2100FB8DD8 /* YHWorkGroupButton.m in Sources */,
-				AC0432401DDC0BC9008DCE20 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				AC1CBF851D90D96C00FB8DD8 /* YHActionSheet.m in Sources */,
+				AC73DF501E9B64BE00BEDF10 /* UITableView+HYBCacheHeight.m in Sources */,
 				AC0432471DDC0BC9008DCE20 /* SDWaitingView.m in Sources */,
 				AC1CBFA11D910F4900FB8DD8 /* YHWorkExperienceModel.m in Sources */,
 				AC02FF2E1D8FDE4C003FD63E /* YHTimeLineListController.m in Sources */,
 				AC1CBF9F1D910F4900FB8DD8 /* YHEducationExperienceModel.m in Sources */,
 				AC1CBFB51D911D6F00FB8DD8 /* NSDate+LYXCategory.m in Sources */,
 				ACCC0B7F1D8FDBCF00ACFEBD /* AppDelegate.m in Sources */,
+				AC73DF511E9B64BE00BEDF10 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				AC04324A1DDC30F5008DCE20 /* YHSharePresentView.m in Sources */,
 				AC1CBF771D90D89000FB8DD8 /* YHWorkGroupPhotoContainer.m in Sources */,
 				AC1CBFB21D911BA300FB8DD8 /* HKPCommon.m in Sources */,
 				AC02FF331D8FDED0003FD63E /* CellForWorkGroup.m in Sources */,
-				AC0432411DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				AC1CBF981D910F0D00FB8DD8 /* YHUserInfo.m in Sources */,
 				AC0432451DDC0BC9008DCE20 /* SDBrowserImageView.m in Sources */,
 				AC0432461DDC0BC9008DCE20 /* SDPhotoBrowser.m in Sources */,
 				AC1CBF711D90BDB100FB8DD8 /* HKPBotView.m in Sources */,
 				AC1CBFA01D910F4900FB8DD8 /* YHUserSetting.m in Sources */,
 				AC2B6FCA1D925FFB0004B6D9 /* YHUtils.m in Sources */,
-				AC0432421DDC0BC9008DCE20 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
-				AC04323F1DDC0BC9008DCE20 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				AC1CBF951D910EDB00FB8DD8 /* YHWorkGroup.m in Sources */,
 				ACCC0B7C1D8FDBCF00ACFEBD /* main.m in Sources */,
 				AC2B6FC71D9215200004B6D9 /* YHUserInfoManager.m in Sources */,
@@ -561,6 +550,7 @@
 			baseConfigurationReference = FA77116E66E71B1B824169A0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6C6E567289;
 				GCC_PREFIX_HEADER = HKPTimeLine/HKPTimeLine.pch;
 				INFOPLIST_FILE = HKPTimeLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -576,6 +566,7 @@
 			baseConfigurationReference = 186569FABF1E1D48852D69EA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6C6E567289;
 				GCC_PREFIX_HEADER = HKPTimeLine/HKPTimeLine.pch;
 				INFOPLIST_FILE = HKPTimeLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

@@ -34,6 +34,11 @@
     return self;
 }
 
+- (void)awakeFromNib{
+    [self setup];
+    [super awakeFromNib];
+}
+
 - (void)setup
 {
     NSMutableArray *temp = [NSMutableArray new];
@@ -53,7 +58,7 @@
 }
 
 
-- (void)setPicUrlArray:(NSArray *)picUrlArray{
+- (CGFloat)setupPicUrlArray:(NSArray *)picUrlArray{
     _picUrlArray = picUrlArray;
     
     for (long i = _picUrlArray.count; i < self.imageViewsArray.count; i++) {
@@ -62,10 +67,7 @@
     }
     
     if (_picUrlArray.count == 0) {
-        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(0);
-        }];
-        return;
+        return 0;
     }
     
     CGFloat itemW = [self itemWidthForPicPathArray:_picUrlArray];
@@ -83,7 +85,7 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.hidden = NO;
-        [imageView sd_setImageWithURL:obj placeholderImage:[UIImage imageNamed:@"workgroup_img_defaultPhoto"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [imageView sd_setImageWithURL:obj placeholderImage:[UIImage imageNamed:@"workgroup_img_defaultPhoto"]  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
             if (image.size.width < itemW || image.size.height < itemW) {
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -91,7 +93,7 @@
             
         }
          ];
-
+        
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
         
     }
@@ -99,12 +101,7 @@
     int columnCount = ceilf(_picUrlArray.count * 1.0 / perRowItemCount);
     CGFloat h = columnCount * itemH + (columnCount - 1) * margin;
     
-
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-         make.height.mas_equalTo(h);
-        }
-    ];
-
+    return h;
 }
 
 #pragma mark - private actions
@@ -160,10 +157,10 @@
 
 /*
  // Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

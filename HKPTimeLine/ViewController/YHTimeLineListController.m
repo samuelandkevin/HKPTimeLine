@@ -10,11 +10,11 @@
 #import "CellForWorkGroup.h"
 #import "CellForWorkGroupRepost.h"
 #import "YHRefreshTableView.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "YHWorkGroup.h"
 #import "YHUserInfoManager.h"
 #import "YHUtils.h"
 #import "YHSharePresentView.h"
+#import "UITableViewCell+HYBMasonryAutoCellHeight.h"
 
 @interface YHTimeLineListController ()<UITableViewDelegate,UITableViewDataSource,CellForWorkGroupDelegate,CellForWorkGroupRepostDelegate>{
     int _currentRequestPage; //当前请求页面
@@ -25,7 +25,7 @@
 
 @property (nonatomic,strong) YHRefreshTableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataArray;
-
+@property (nonatomic,strong) NSMutableDictionary *heightDict;
 @end
 
 @implementation YHTimeLineListController
@@ -35,7 +35,7 @@
     [self initUI];
     [self requestDataLoadNew:YES];
     
-    //设置UserId 
+    //设置UserId
     [YHUserInfoManager sharedInstance].userInfo.uid = @"1";
 }
 
@@ -51,7 +51,7 @@
     NSShadow *shadow = [[NSShadow alloc]init];
     shadow.shadowColor = [UIColor colorWithWhite:0.871 alpha:1.000];
     shadow.shadowOffset = CGSizeMake(0.5, 0.5);
-
+    
     //设置导航栏标题颜色
     NSDictionary *attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:18],NSShadowAttributeName:shadow};
     self.navigationController.navigationBar.titleTextAttributes = attributes;
@@ -64,7 +64,7 @@
     self.tableView.backgroundColor = RGBCOLOR(244, 244, 244);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
-
+    
     [self.tableView setEnableLoadNew:YES];
     [self.tableView setEnableLoadMore:YES];
     
@@ -83,6 +83,13 @@
     return _dataArray;
 }
 
+- (NSMutableDictionary *)heightDict{
+    if (!_heightDict) {
+        _heightDict = [NSMutableDictionary new];
+    }
+    return _heightDict;
+}
+
 
 #pragma mark - UITableViewDataSource
 
@@ -91,93 +98,102 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell;
-    //原创cell
-    Class currentClass  = [CellForWorkGroup class];
     YHWorkGroup *model  = self.dataArray[indexPath.row];
     
-    //转发cell
     if (model.type == DynType_Forward) {
-        currentClass = [CellForWorkGroupRepost class];//第一版没有转发,因此这样稍该一下
-    }
-    cell  = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(currentClass)];
-    
-    CellForWorkGroup  *cell1 = nil;//原创
-    CellForWorkGroupRepost *cell2 = nil;//转发
-    /*******原创Cell*******/
-    if ([cell isMemberOfClass:[CellForWorkGroup class]]) {
-        cell1 = (CellForWorkGroup *)cell;
-        cell1.indexPath = indexPath;
-        cell1.model = model;
-        cell1.delegate = self;
-        return cell1;
-        
+        //转发cell
+        CellForWorkGroupRepost *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CellForWorkGroupRepost class])];
+        if (!cell) {
+            cell = [[CellForWorkGroupRepost alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([CellForWorkGroupRepost class])];
+        }
+        cell.indexPath = indexPath;
+        cell.model = model;
+        cell.delegate = self;
+        return cell;
     }else{
-        /*****转发cell******/
-        cell2 = (CellForWorkGroupRepost *)cell;
-        cell2.indexPath = indexPath;
-        cell2.model = model;
-        cell2.delegate = self;
-        return cell2;
+        //原创cell
+        CellForWorkGroup *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CellForWorkGroup class])];
+        if (!cell) {
+            cell = [[CellForWorkGroup alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([CellForWorkGroup class])];
+        }
+        cell.indexPath = indexPath;
+        cell.model = model;
+        cell.delegate = self;
+        return cell;
     }
+
     
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+    
     
     if (indexPath.row < self.dataArray.count) {
         
+        CGFloat height = 0.0;
         //原创cell
         Class currentClass  = [CellForWorkGroup class];
         YHWorkGroup *model  = self.dataArray[indexPath.row];
         
+        //取缓存高度
+        NSDictionary *dict =  self.heightDict[model.dynamicId];
+        if (dict) {
+            if (model.isOpening) {
+                height = [dict[@"open"] floatValue];
+            }else{
+                height = [dict[@"normal"] floatValue];
+            }
+            if (height) {
+                return height;
+            }
+        }
+        
         //转发cell
         if (model.type == DynType_Forward) {
             currentClass = [CellForWorkGroupRepost class];//第一版没有转发,因此这样稍该一下
-            return [self.tableView fd_heightForCellWithIdentifier:@"CellForWorkGroupRepost" configuration:^(CellForWorkGroupRepost *cell) {
-                [self configureRepostCell:cell atIndexPath:indexPath];
+            
+            height = [CellForWorkGroupRepost hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
+                CellForWorkGroupRepost *cell = (CellForWorkGroupRepost *)sourceCell;
+                
+                cell.model = model;
+                
             }];
+            
         }
         else{
-            return [self.tableView fd_heightForCellWithIdentifier:@"CellForWorkGroup" configuration:^(CellForWorkGroup *cell) {
-                [self configureOriCell:cell atIndexPath:indexPath];
+            
+            height = [CellForWorkGroup hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
+                CellForWorkGroup *cell = (CellForWorkGroup *)sourceCell;
+                
+                cell.model = model;
+                
             }];
-           
         }
+        
+        //缓存高度
+        if (model.dynamicId) {
+            NSMutableDictionary *aDict = [NSMutableDictionary new];
+            if (model.isOpening) {
+                [aDict setObject:@(height) forKey:@"open"];
+            }else{
+                [aDict setObject:@(height) forKey:@"normal"];
+            }
+            [self.heightDict setObject:aDict forKey:model.dynamicId];
+        }
+        return height;
     }
     else{
         return 44.0f;
     }
 }
 
-- (void)configureOriCell:(CellForWorkGroup *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
-    if (indexPath.row < _dataArray.count) {
-        cell.model = _dataArray[indexPath.row];
-    }
-    
-}
-
-- (void)configureRepostCell:(CellForWorkGroupRepost *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    cell.fd_enforceFrameLayout = NO; // Enable to use "-sizeThatFits:"
-    if (indexPath.row < _dataArray.count) {
-        cell.model = _dataArray[indexPath.row];
-    }
-    
-}
-
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-
+    
 }
 
 #pragma mark - 网络请求
@@ -192,15 +208,23 @@
         _currentRequestPage ++;
         refreshType = YHRefreshType_LoadMore;
     }
-
+    
     [self.tableView loadBegin:refreshType];
     if (loadNew) {
         [self.dataArray removeAllObjects];
+        [self.heightDict removeAllObjects];
     }
-   
+    
     int totalCount = 10;
+    
+    NSUInteger lastDynamicID = 0;
+    if (!loadNew && self.dataArray.count) {
+        YHWorkGroup *model = self.dataArray.lastObject;
+        lastDynamicID = [model.dynamicId integerValue];
+    }
     for (int i=0; i<totalCount; i++) {
         YHWorkGroup *model = [YHWorkGroup new];
+        model.dynamicId = [NSString stringWithFormat:@"%lu", lastDynamicID + i+1];
         [self randomModel:model totalCount:totalCount];
         [self.dataArray addObject:model];
     }
@@ -213,7 +237,7 @@
 #pragma mark - 模拟产生数据源
 - (void)randomModel:(YHWorkGroup *)model totalCount:(int)totalCount{
     
-    model.type = arc4random()%totalCount %2? DynType_Forward:DynType_Original;
+    model.type = arc4random()%totalCount %2? DynType_Forward:DynType_Original;//动态类型
     if (model.type == DynType_Forward) {
         model.forwardModel = [YHWorkGroup new];
         [self creatOriModel:model.forwardModel totalCount:totalCount];
@@ -225,15 +249,15 @@
 - (void)creatOriModel:(YHWorkGroup *)model totalCount:(int)totalCount{
     YHUserInfo *userInfo = [YHUserInfo new];
     model.userInfo = userInfo;
-  
+    
     
     NSArray *avtarArray = @[
-@"http://testapp.gtax.cn/images/2016/11/05/812eb442b6a645a99be476d139174d3c.png!m90x90.png",
-@"http://testapp.gtax.cn/images/2016/11/09/64a62eaaff7b466bb8fab12a89fe5f2f.png!m90x90.png",
-@"https://testapp.gtax.cn/images/2016/09/30/ad0d18a937b248f88d29c2f259c14b5e.jpg!m90x90.jpg",
-@"https://testapp.gtax.cn/images/2016/09/14/c6ab40b1bc0e4bf19e54107ee2299523.jpg!m90x90.jpg",
-@"http://testapp.gtax.cn/images/2016/11/14/8d4ee23d9f5243f98c79b9ce0c699bd9.png!m90x90.png",
-@"https://testapp.gtax.cn/images/2016/09/14/8cfa9bd12e6844eea0a2e940257e1186.jpg!m90x90.jpg"];
+                            @"http://testapp.gtax.cn/images/2016/11/05/812eb442b6a645a99be476d139174d3c.png!m90x90.png",
+                            @"http://testapp.gtax.cn/images/2016/11/09/64a62eaaff7b466bb8fab12a89fe5f2f.png!m90x90.png",
+                            @"https://testapp.gtax.cn/images/2016/09/30/ad0d18a937b248f88d29c2f259c14b5e.jpg!m90x90.jpg",
+                            @"https://testapp.gtax.cn/images/2016/09/14/c6ab40b1bc0e4bf19e54107ee2299523.jpg!m90x90.jpg",
+                            @"http://testapp.gtax.cn/images/2016/11/14/8d4ee23d9f5243f98c79b9ce0c699bd9.png!m90x90.png",
+                            @"https://testapp.gtax.cn/images/2016/09/14/8cfa9bd12e6844eea0a2e940257e1186.jpg!m90x90.jpg"];
     int avtarIndex = arc4random() % avtarArray.count;
     if (avtarIndex < avtarArray.count) {
         model.userInfo.avatarUrl = [NSURL URLWithString:avtarArray[avtarIndex]];
@@ -284,26 +308,26 @@
     
     
     CGFloat picLength = arc4random() % 9;
-
+    
     //原图
     NSArray *oriPName = @[
-@"https://testapp.gtax.cn/images/2016/08/25/2241c4b32b8445da87532d6044888f3d.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/0abd8670e96e4357961fab47ba3a1652.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/5cd8aa1f1b1f4b2db25c51410f473e60.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/5e8b978854ef4a028d284f6ddc7512e0.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/03c58da45900428796fafcb3d77b6fad.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/dbee521788da494683ef336432028d48.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/4cd95742b6744114ac8fa41a72f83257.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/4d49888355a941cab921c9f1ad118721.jpg",
-    
-@"https://testapp.gtax.cn/images/2016/08/25/ea6a22e8b4794b9ba63fd6ee587be4d1.jpg"];
+                          @"https://testapp.gtax.cn/images/2016/08/25/2241c4b32b8445da87532d6044888f3d.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/0abd8670e96e4357961fab47ba3a1652.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/5cd8aa1f1b1f4b2db25c51410f473e60.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/5e8b978854ef4a028d284f6ddc7512e0.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/03c58da45900428796fafcb3d77b6fad.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/dbee521788da494683ef336432028d48.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/4cd95742b6744114ac8fa41a72f83257.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/4d49888355a941cab921c9f1ad118721.jpg",
+                          
+                          @"https://testapp.gtax.cn/images/2016/08/25/ea6a22e8b4794b9ba63fd6ee587be4d1.jpg"];
     
     NSMutableArray *oriPArr = [NSMutableArray new];
     for (NSString *pName in oriPName) {
@@ -312,29 +336,29 @@
     
     //小图
     NSArray *thumbPName = @[
-                             @"https://testapp.gtax.cn/images/2016/08/25/2241c4b32b8445da87532d6044888f3d.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/0abd8670e96e4357961fab47ba3a1652.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/5cd8aa1f1b1f4b2db25c51410f473e60.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/5e8b978854ef4a028d284f6ddc7512e0.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/03c58da45900428796fafcb3d77b6fad.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/dbee521788da494683ef336432028d48.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/4cd95742b6744114ac8fa41a72f83257.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/4d49888355a941cab921c9f1ad118721.jpg!t300x300.jpg",
-                             
-                             @"https://testapp.gtax.cn/images/2016/08/25/ea6a22e8b4794b9ba63fd6ee587be4d1.jpg!t300x300.jpg"];
+                            @"https://testapp.gtax.cn/images/2016/08/25/2241c4b32b8445da87532d6044888f3d.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/0abd8670e96e4357961fab47ba3a1652.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/5cd8aa1f1b1f4b2db25c51410f473e60.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/5e8b978854ef4a028d284f6ddc7512e0.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/03c58da45900428796fafcb3d77b6fad.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/dbee521788da494683ef336432028d48.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/4cd95742b6744114ac8fa41a72f83257.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/4d49888355a941cab921c9f1ad118721.jpg!t300x300.jpg",
+                            
+                            @"https://testapp.gtax.cn/images/2016/08/25/ea6a22e8b4794b9ba63fd6ee587be4d1.jpg!t300x300.jpg"];
     
     NSMutableArray *thumbPArr = [NSMutableArray new];
     for (NSString *pName in thumbPName) {
         [thumbPArr addObject:[NSURL URLWithString:pName]];
     }
-
+    
     model.originalPicUrls = [oriPArr subarrayWithRange:NSMakeRange(0, picLength)];
     model.thumbnailPicUrls = [thumbPArr subarrayWithRange:NSMakeRange(0, picLength)];
 }
@@ -351,7 +375,7 @@
 
 #pragma mark - CellForWorkGroupDelegate
 - (void)onAvatarInCell:(CellForWorkGroup *)cell{
-
+    
 }
 
 - (void)onMoreInCell:(CellForWorkGroup *)cell{
@@ -361,11 +385,11 @@
         model.isOpening = !model.isOpening;
         [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
-
+    
 }
 
 - (void)onCommentInCell:(CellForWorkGroup *)cell{
-
+    
 }
 
 - (void)onLikeInCell:(CellForWorkGroup *)cell{
@@ -384,7 +408,7 @@
         
         [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
-
+    
 }
 
 - (void)onShareInCell:(CellForWorkGroup *)cell{
@@ -403,7 +427,7 @@
 #pragma mark - CellForWorkGroupRepostDelegate
 
 - (void)onAvatarInRepostCell:(CellForWorkGroupRepost *)cell{
-
+    
 }
 
 
@@ -430,7 +454,7 @@
         [self.tableView reloadRowsAtIndexPaths:@[cell.indexPath] withRowAnimation:UITableViewRowAnimationNone];
         
     }
-
+    
     
 }
 
@@ -464,13 +488,13 @@
         
         if (resultYes)
         {
-
+            
             DDLog(@"delete row is %ld",(long)indexPath.row);
-                    
+            
             [weakSelf.dataArray removeObjectAtIndex:indexPath.row];
-     
+            [weakSelf.heightDict removeObjectForKey:dynamicId];
             [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-   
+            
         }
     }];
     
@@ -514,7 +538,7 @@
                     break;
                 case 3:
                 {
-
+                    
                 }
                     break;
                     
@@ -529,7 +553,7 @@
                 {
                     //微信好友
                     DDLog(@"微信好友");
-                   
+                    
                 }
                     break;
                 default:
@@ -548,13 +572,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

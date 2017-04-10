@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSArray *picOriArray;//原图url
 
 - (instancetype)initWithWidth:(CGFloat)width;
+
+- (CGFloat)setupPicUrlArray:(NSArray *)picUrlArray;
 @end
