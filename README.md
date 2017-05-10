@@ -18,9 +18,9 @@ align=center /> <br>
 }
 ```
 #### 动态首页:
-动态首页所涉及的View使用简要说明:<br>
- ![pic2](http://img.blog.csdn.net/20161116151115093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)<br>
-<br>
+动态首页所涉及的View使用简要说明:
+ ![pic2](http://img.blog.csdn.net/20161116151115093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
 使用Masorny布局时要打开符号断点:<br>
 <img src="http://img.blog.csdn.net/20161116151851300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "568" height = "150" alt="pic3"
 align=center /> <br>
