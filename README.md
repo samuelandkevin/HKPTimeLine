@@ -23,8 +23,63 @@ align=center /> <br>
 <img src="http://img.blog.csdn.net/20161116151851300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "568" height = "150" alt="pic3"
 align=center /> <br>
 #### 行高计算:
-<img src="http://img.blog.csdn.net/20161116152859177?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "500" height = "300" alt="pic4"
-align=center /> <br>
+```
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row < self.dataArray.count) {
+        CGFloat height = 0.0;
+        //原创cell
+        Class currentClass  = [CellForWorkGroup class];
+        YHWorkGroup *model  = self.dataArray[indexPath.row];
+        
+        //取缓存高度
+        NSDictionary *dict =  self.heightDict[model.dynamicId];
+        if (dict) {
+            if (model.isOpening) {
+                height = [dict[@"open"] floatValue];
+            }else{
+                height = [dict[@"normal"] floatValue];
+            }
+            if (height) {
+                return height;
+            }
+        }
+        
+        //转发cell
+        if (model.type == DynType_Forward) {
+            currentClass = [CellForWorkGroupRepost class];//第一版没有转发,因此这样稍该一下
+            
+            height = [CellForWorkGroupRepost hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
+                CellForWorkGroupRepost *cell = (CellForWorkGroupRepost *)sourceCell;
+                cell.model = model;   
+            }];
+            
+        }
+        else{
+            height = [CellForWorkGroup hyb_heightForTableView:tableView config:^(UITableViewCell *sourceCell) {
+                CellForWorkGroup *cell = (CellForWorkGroup *)sourceCell;
+                cell.model = model;
+            }];
+        }
+        
+        //缓存高度
+        if (model.dynamicId) {
+            NSMutableDictionary *aDict = [NSMutableDictionary new];
+            if (model.isOpening) {
+                [aDict setObject:@(height) forKey:@"open"];
+            }else{
+                [aDict setObject:@(height) forKey:@"normal"];
+            }
+            [self.heightDict setObject:aDict forKey:model.dynamicId];
+        }
+        return height;
+    }
+    else{
+        return 44.0f;
+    }
+}
+
+```
 #### 效果图:
 <img src="http://img.blog.csdn.net/20161116153510404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "320" height = "568" alt="pic5"
 align=center /> <img src="http://img.blog.csdn.net/20161116153603983?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "320" height = "568" alt="pic7"
