@@ -82,9 +82,9 @@ align=center /> <br>
 
 ```
 #### 效果图:
-<img src="http://img.blog.csdn.net/20161116153510404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "320" height = "568" alt="pic5"
-align=center /> <img src="http://img.blog.csdn.net/20161116153603983?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "320" height = "568" alt="pic7"
-align=center />   <img src="http://img.blog.csdn.net/20161116153630525?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width = "320" height = "568" alt="pic8"
-align=center /> <br>
+<img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/pic1.png" width = "320" height = "568" alt="pic5"
+align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/pic2.png" width = "320" height = "568" alt="pic7"
+align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/pic3.png" width = "320" height = "568" alt="pic8"
+align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/gif1.gif" width = "320" height = "568" alt="pic9" align=center /><br/>
 
 你的支持，我的动力！
