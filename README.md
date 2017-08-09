@@ -85,6 +85,7 @@ align=center /> <br>
 <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/pic1.png" width = "320" height = "568" alt="pic5"
 align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/pic2.png" width = "320" height = "568" alt="pic7"
 align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/pic3.png" width = "320" height = "568" alt="pic8"
-align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/gif1.gif" width = "320" height = "568" alt="pic9" align=center /><br/>
+align=center /> <img src="https://github.com/samuelandkevin/HKPTimeLine/blob/master/pics/gif1.gif" width = "320" height = "568" alt="pic9"
+align=center /> <br/>
 
 你的支持，我的动力！
